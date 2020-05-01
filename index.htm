@@ -8,64 +8,290 @@
     <title>Year in progress</title>
     <meta name="description" content="A year progress bar to remind us that time moves whether we do or not.">
     <meta name="author" content="Steve Fox">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Open+Sans&display=swap" rel="stylesheet">
+    <script src='yearprogressbar.js'></script>
 
+    <style>
+        :root {
+            --left-padding-amount: 10px;
+            --top-padding-amount: 10px;
+            --border-colour: #c3c3c3;
+            --border-colour: #dadada;
+        }
+
+
+
+
+
+
+
+        textarea {
+            border: none;
+            font-size: 1.3em;
+            resize: none;
+            width: 98%;
+            height: 80%;
+
+            padding: 0;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            font-family: 'Courier New', Courier, monospace;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1.0em;
+            color: #4a525e;
+            color: #5f6772;
+            min-height: 100px;
+            ;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            outline: none;
+
+        }
+
+
+
+
+
+
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: 0.9fr 1.3fr 1.3fr 0.9fr;
+            grid-template-rows: 0.15fr 0.8fr 1.2fr 1fr 0.1fr;
+            gap: 0px 0px;
+            grid-template-areas:
+                "GutterLeft Header Header GutterRight"
+                "GutterLeft GoalsToday ProgressBar GutterRight"
+                "GutterLeft GoalsWeek MonthYearHabits GutterRight"
+                "GutterLeft Notes Notes GutterRight"
+                "GutterLeft Footer Footer GutterRight";
+            width: 100vw;
+            height: 100vh;
+        }
+
+
+        .grid-container div {
+            border-bottom: var(--border-colour) solid 1px;
+
+            display: block;
+            margin-bottom: 0px;
+            margin-top: 0px;
+
+
+
+        }
+
+        .grid-container label {
+            text-transform: uppercase;
+            font-size: 0.9em;
+            color: #9c9c9c;
+            font-family: 'Montserrat', sans-serif;
+        }
+
+
+
+
+
+        .GoalsToday {
+            grid-area: GoalsToday;
+            padding: var(--top-padding-amount) 0 0 var(--left-padding-amount);
+        }
+
+        .ProgressBar {
+            grid-area: ProgressBar;
+            border-left: var(--border-colour) solid 1px;
+            padding: var(--top-padding-amount) 0 0 var(--left-padding-amount);
+
+        }
+
+        .GutterRight {
+            grid-area: GutterRight;
+            background-color: #f9f9f9;
+            background-color: #efefef;
+            border-leftx: #c3c3c3 solid 1px;
+            border-left: white solid 20px;
+        }
+
+        .GutterLeft {
+            grid-area: GutterLeft;
+            background-color: #f9f9f9;
+            background-color: #efefef;
+            border-bottomx: #c3c3c3 solid 1px;
+            border-right: white solid 20px;
+        }
+
+        .GoalsWeek {
+            grid-area: GoalsWeek;
+            padding: var(--top-padding-amount) 0 0 var(--left-padding-amount);
+        }
+
+        .MonthYearHabits {
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 1fr 1fr;
+            gap: 1px 1px;
+            grid-template-areas: "GoalsMonth""GoalsYear""Habits";
+            grid-area: MonthYearHabits;
+            border-left: var(--border-colour) solid 1px;
+        }
+
+        .GoalsMonth {
+            grid-area: GoalsMonth;
+            padding: var(--top-padding-amount) 0 0 var(--left-padding-amount);
+        }
+
+        .GoalsYear {
+            grid-area: GoalsYear;
+            padding: var(--top-padding-amount) 0 0 var(--left-padding-amount);
+        }
+
+        .Habits {
+            grid-area: Habits;
+            padding: var(--top-padding-amount) 0 0 var(--left-padding-amount);
+            border-bottom: 0px !important;
+        }
+
+        .Notes {
+            grid-area: Notes;
+            padding: var(--top-padding-amount) 0 0 var(--left-padding-amount);
+        }
+
+
+        .Header {
+            grid-area: Header;
+        }
+
+        .Footer {
+            grid-area: Footer;
+        }
+
+
+
+        body {
+            padding: 0;
+            margin: 0;
+            font-family: Sans-Serif;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        .placeholder::-webkit-input-placeholder {
+            color: #d3d3d3;
+        }
+
+        .placeholder:-moz-placeholder {
+            /* Firefox 18- */
+            color: #d3d3d3;
+        }
+
+        .placeholder::-moz-placeholder {
+            /* Firefox 19+ */
+            color: #d3d3d3;
+        }
+
+        .placeholder:-ms-input-placeholder {
+            color: #d3d3d3;
+        }
+
+        .placeholder.hide-on-focus:focus::-webkit-input-placeholder {
+            color: white;
+        }
+
+        .placeholder.hide-on-focus:focus:-moz-placeholder {
+            /* Firefox 18- */
+            color: white;
+        }
+
+        .placeholder.hide-on-focus:focus::-moz-placeholder {
+            /* Firefox 19+ */
+            color: white;
+        }
+
+        .placeholder.hide-on-focus:focus:-ms-input-placeholder {
+            color: white;
+        }
+    </style>
 
 </head>
 
 <body>
-    <script>
-
-        // choices
-        var titleBefore = false;
-        var titleBeforeText = "Year in progress: ";
-        var titleAfterText = "% of year elapsed";
-        let decimalPlaces = 1; // recommend 1 to 5, 0 rounds up, 5 lets you see some nice movement
-
-
-        const currentYear = new Date().getFullYear();
-        changeTitle();                                      // sets the title so there is no delay
-
-        window.onload = function newUpdate() {
-            update = setInterval(changeTitle, 800);
-        }
 
 
 
-        function changeTitle() {
-            // change title, formatted either before or after style
-            titleBefore ? document.title = titleBeforeText + getYearProgress() + '%' : document.title = getYearProgress() + titleAfterText;
-        }
 
 
-        function isLeapYear() {
-            // returns true or false depending on the conditions being met
-            // exactly divisible by 4 but not 100 OR exactly divisible by 100
-            return ((currentYear % 4 == 0) && (currentYear % 100 != 0)) || (currentYear % 400 == 0);
-        }
 
 
-        function getTotalDays() {
-            const leapYearDays = 366;
-            const normalYearDays = 365;
-
-            // if true, returns 366 else returns 365
-            return isLeapYear() ? leapYearDays : normalYearDays;
-        }
 
 
-        function getYearProgress() {
 
-            var now = new Date();
-            var yearStart = new Date(currentYear, 0, 1);
-            var yearElapsed = now - yearStart;
 
-            // the days need to be multiplied by 24 hours, 60 mins, 60 seconds and 1000 milliseconds so we are using the same units
-            // multiply by 100 so it's expressed as a percentage
-            yearElapsedPercentage = (yearElapsed / (getTotalDays() * 24 * 60 * 60 * 1000)) * 100;
 
-            return yearElapsedPercentage.toFixed(decimalPlaces);
-        }
-    </script>
+
+    <div class="grid-container">
+        <div class="Header">Focus Now</div>
+        <div class="GoalsToday"><label>Goals Today</label>
+            <textarea id="taGoalsToday" class="placeholder hide-on-focus"></textarea></div>
+
+        <div class="ProgressBar"><label>Time</label></div>
+        <div class="GutterRight"></div>
+        <div class="GutterLeft"></div>
+        <div class="GoalsWeek"><label>Goals Week</label>
+            <textarea id="taGoalsWeek" class="placeholder hide-on-focus"></textarea></div>
+
+        <div class="MonthYearHabits">
+            <div class="GoalsMonth"><label>Goals Month</label><textarea id="taGoalsMonth"
+                    class="placeholder hide-on-focus"></textarea></div>
+            <div class="GoalsYear"><label>Goals Year</label><textarea id="taGoalsYear"
+                    class="placeholder hide-on-focus"></textarea> </div>
+            <div class="Habits"><label>Habits</label><textarea id="taHabits"
+                    class="placeholder hide-on-focus"></textarea></div>
+        </div>
+
+        <div class="Notes">
+            <label>Notes</label>
+            <textarea id="taNotes" class="placeholder hide-on-focus"></textarea>
+            <!--<button onclick="saveContent('taNotes', 'lsNotes', 'Start here...')">Save</button>-->
+            <!--<button onclick="loadContent('taNotes', 'lsNotes', 'Start here...')">Load</button>-->
+        </div>
+
+        <div class="Footer"></div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 </body>
 
 </html>
