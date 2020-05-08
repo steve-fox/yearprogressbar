@@ -103,7 +103,6 @@ function getDayLength(beginHour, endHour){
     function saveAllContent() {
     saveContent('taNotes', 'lsNotes', 'Start here...');
         //saveContent('taGoalsToday', 'lsGoalsToday', 'Start goals today here...');
-        saveContent('taGoalsWeek', 'lsGoalsWeek', 'Start goals week here...');
         saveContent('taGoalsMonth', 'lsGoalsMonth', 'Start goals month here...');
         saveContent('taGoalsYear', 'lsGoalsYear', 'Start goals year here...');
         saveContent('taHabits', 'lsHabits', 'Start habits here...');
@@ -116,6 +115,13 @@ function getDayLength(beginHour, endHour){
         saveContent('inGoalsToday7', 'lsGoalsToday7', 'goal 7 here...');
         saveContent('inGoalsToday8', 'lsGoalsToday8', 'goal 8 here...');
         saveContent('inGoalsToday9', 'lsGoalsToday9', 'goal 9 here...');
+        saveContent('inGoalsWeek1', 'lsGoalsWeek1', 'goal 1 here...');
+        saveContent('inGoalsWeek2', 'lsGoalsWeek2', 'goal 2 here...');
+        saveContent('inGoalsWeek3', 'lsGoalsWeek3', 'goal 3 here...');
+        saveContent('inGoalsWeek4', 'lsGoalsWeek4', 'goal 4 here...');
+        saveContent('inGoalsWeek5', 'lsGoalsWeek5', 'goal 5 here...');
+        saveContent('inGoalsWeek6', 'lsGoalsWeek6', 'goal 6 here...');
+
     }
 
 
@@ -131,7 +137,6 @@ function getDayLength(beginHour, endHour){
     function loadAllContent() {
     loadContent('taNotes', 'lsNotes', 'Start here...');
         //loadContent('taGoalsToday', 'lsGoalsToday', 'Start goals today here...');
-        loadContent('taGoalsWeek', 'lsGoalsWeek', 'Start goals week here...');
         loadContent('taGoalsMonth', 'lsGoalsMonth', 'Start goals month here...');
         loadContent('taGoalsYear', 'lsGoalsYear', 'Start goals year here...');
         loadContent('taHabits', 'lsHabits', 'Start habits here...');
@@ -144,6 +149,13 @@ function getDayLength(beginHour, endHour){
         loadContent('inGoalsToday7', 'lsGoalsToday7', 'goal 7 here...');
         loadContent('inGoalsToday8', 'lsGoalsToday8', 'goal 8 here...');
         loadContent('inGoalsToday9', 'lsGoalsToday9', 'goal 9 here...');
+        loadContent('inGoalsWeek1', 'lsGoalsWeek1', 'goal 1 here...');
+        loadContent('inGoalsWeek2', 'lsGoalsWeek2', 'goal 2 here...');
+        loadContent('inGoalsWeek3', 'lsGoalsWeek3', 'goal 3 here...');
+        loadContent('inGoalsWeek4', 'lsGoalsWeek4', 'goal 4 here...');
+        loadContent('inGoalsWeek5', 'lsGoalsWeek5', 'goal 5 here...');
+        loadContent('inGoalsWeek6', 'lsGoalsWeek6', 'goal 6 here...');
+
     }
 
 

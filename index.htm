@@ -204,7 +204,82 @@
         .GoalsWeek {
             grid-area: GoalsWeek;
             padding: var(--top-padding-amount) 0 0 var(--left-padding-amount);
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+            grid-template-rows: 0.85fr 1fr 1.4fr;
+
+            grid-template-areas: "laGoalsToday spWeekElapsed spWeekElapsed spWeekElapsed spWeekElapsed spWeekElapsed spWeekElapsed spWeekElapsed spWeekElapsed"
+                "inGoalsWeek1 inGoalsWeek1 inGoalsWeek1 inGoalsWeek2 inGoalsWeek2 inGoalsWeek2 inGoalsWeek3 inGoalsWeek3 inGoalsWeek3"
+                "inGoalsWeek4 inGoalsWeek4 inGoalsWeek4 inGoalsWeek5 inGoalsWeek5 inGoalsWeek5 inGoalsWeek6 inGoalsWeek6 inGoalsWeek6";
+            min-height: fit-content;
+            grid-gap: 0 40px;
         }
+
+
+        .laGoalsWeek {
+            grid-area: laGoalsWeek;
+            width: max-content;
+        }
+
+        .inGoalsWeek1 {
+            grid-area: inGoalsWeek1;
+        }
+
+        .inGoalsWeek2 {
+            grid-area: inGoalsWeek2;
+        }
+
+        .inGoalsWeek3 {
+            grid-area: inGoalsWeek3;
+        }
+
+        .inGoalsWeek4 {
+            grid-area: inGoalsWeek4;
+        }
+
+        .inGoalsWeek5 {
+            grid-area: inGoalsWeek5;
+        }
+
+        .inGoalsWeek6 {
+            grid-area: inGoalsWeek6;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         .SubGrid {
             display: grid;
@@ -365,8 +440,31 @@
 
         <div class="GutterRight"></div>
         <div class="GutterLeft"></div>
-        <div class="GoalsWeek"><label>Goals Week</label>
-            <textarea id="taGoalsWeek" class="placeholder hide-on-focus"></textarea></div>
+        <div class="GoalsWeek"><label class="laGoalsToday">Goals Week</label><span id="spWeekElapsed"></span>
+
+            <label class="inGoalsWeek1 inputlabel">1.</label>
+            <input id="inGoalsWeek1" class="inGoalsWeek1 inputlabel placeholder hide-on-focus" type="text" />
+
+
+            <input id="inGoalsWeek2" class="inGoalsWeek2 inputlabel placeholder hide-on-focus" type="text" />
+            <label class="inGoalsWeek2 inputlabel">2.</label>
+
+            <input id="inGoalsWeek3" class="inGoalsWeek3 inputlabel placeholder hide-on-focus" type="text" />
+            <label class="inGoalsWeek3 inputlabel">3.</label>
+
+            <input id="inGoalsWeek4" class="inGoalsWeek4 inputlabel placeholder hide-on-focus" type="text" />
+            <label class="inGoalsWeek4 inputlabel">4.</label>
+
+            <input id="inGoalsWeek5" class="inGoalsWeek5 inputlabel placeholder hide-on-focus" type="text" />
+            <label class="inGoalsWeek5 inputlabel">5.</label>
+
+            <input id="inGoalsWeek6" class="inGoalsWeek6 inputlabel placeholder hide-on-focus" type="text" />
+            <label class="inGoalsWeek6 inputlabel">6.</label>
+
+
+
+        </div>
+
 
         <div class="SubGrid">
             <div class="GoalsMonth"><label>Goals Month</label><textarea id="taGoalsMonth"
