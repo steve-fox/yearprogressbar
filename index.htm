@@ -295,7 +295,52 @@
         .GoalsMonth {
             grid-area: GoalsMonth;
             padding: var(--top-padding-amount) 0 0 var(--left-padding-amount);
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+            grid-template-rows: 0.85fr 1fr 1.4fr;
+
+            grid-template-areas: "laGoalsMonth spMonthElapsed spMonthElapsed spMonthElapsed spMonthElapsed spMonthElapsed"
+                "inGoalsMonth1 inGoalsMonth1 inGoalsMonth1 inGoalsMonth2 inGoalsMonth2 inGoalsMonth2"
+                "inGoalsMonth3 inGoalsMonth3 inGoalsMonth3 inGoalsMonth4 inGoalsMonth4 inGoalsMonth4";
+            min-height: fit-content;
+            grid-gap: 0 40px;
         }
+
+        .laGoalsMonth {
+            grid-area: laGoalsMonth;
+            width: max-content;
+        }
+
+        .inGoalsMonth1 {
+            grid-area: inGoalsMonth1;
+        }
+
+        .inGoalsMonth2 {
+            grid-area: inGoalsMonth2;
+        }
+
+        .inGoalsMonth3 {
+            grid-area: inGoalsMonth3;
+        }
+
+        .inGoalsMonth4 {
+            grid-area: inGoalsMonth4;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         .GoalsYear {
             grid-area: GoalsYear;
@@ -467,8 +512,25 @@
 
 
         <div class="SubGrid">
-            <div class="GoalsMonth"><label>Goals Month</label><textarea id="taGoalsMonth"
-                    class="placeholder hide-on-focus"></textarea></div>
+
+            <div class="GoalsMonth">
+                <label class="laGoalsMonth">Goals Month</label><span id="spMonthElapsed"></span>
+
+                <label class="inGoalsMonth1 inputlabel">1.</label>
+                <input id="inGoalsMonth1" class="inGoalsMonth1 inputlabel placeholder hide-on-focus" type="text" />
+
+                <input id="inGoalsMonth2" class="inGoalsMonth2 inputlabel placeholder hide-on-focus" type="text" />
+                <label class="inGoalsMonth2 inputlabel">2.</label>
+
+                <input id="inGoalsMonth3" class="inGoalsMonth3 inputlabel placeholder hide-on-focus" type="text" />
+                <label class="inGoalsMonth3 inputlabel">3.</label>
+
+                <input id="inGoalsMonth4" class="inGoalsMonth4 inputlabel placeholder hide-on-focus" type="text" />
+                <label class="inGoalsMonth4 inputlabel">4.</label>
+            </div>
+
+
+
             <div class="GoalsYear"><label>Goals Year</label><textarea id="taGoalsYear"
                     class="placeholder hide-on-focus"></textarea> </div>
             <div class="Habits"><label>Habits</label><textarea id="taHabits"
