@@ -411,7 +411,73 @@
             padding: var(--top-padding-amount) 0 0 var(--left-padding-amount);
             border-left: var(--border-colour) solid 1px;
             border-bottom: 0px !important;
+            display: grid;
+            grid-template-columns: 1fr;
+            grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+
+            grid-template-areas: "laHabits"
+                "inHabits1"
+                "inHabits2"
+                "inHabits3"
+                "inHabits4"
+                "inHabits5"
+                "inHabits6";
+            min-height: fit-content;
+            grid-gap: 0 40px;
         }
+
+
+        .laHabits {
+            grid-area: laHabits;
+            width: max-content;
+        }
+
+        .inHabits1 {
+            grid-area: inHabits1;
+        }
+
+        .inHabits2 {
+            grid-area: inHabits2;
+        }
+
+        .inHabits3 {
+            grid-area: inHabits3;
+        }
+
+        .inHabits4 {
+            grid-area: inHabits4;
+        }
+
+        .inHabits5 {
+            grid-area: inHabits5;
+        }
+
+        .inHabits6 {
+            grid-area: inHabits6;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         .Notes {
             grid-area: Notes;
@@ -636,8 +702,32 @@
 
 
 
-            <div class="Habits"><label>Habits</label><textarea id="taHabits"
-                    class="placeholder hide-on-focus"></textarea></div>
+            <div class="Habits">
+
+                <label class="laHabits">Habits</label>
+
+                <label class="inHabits1 inputlabel">1.</label>
+                <input id="inHabits1" class="inHabits1 inputlabel placeholder hide-on-focus" type="text" />
+
+
+                <input id="inHabits2" class="inHabits2 inputlabel placeholder hide-on-focus" type="text" />
+                <label class="inHabits2 inputlabel">2.</label>
+
+                <input id="inHabits3" class="inHabits3 inputlabel placeholder hide-on-focus" type="text" />
+                <label class="inHabits3 inputlabel">3.</label>
+
+                <input id="inHabits4" class="inHabits4 inputlabel placeholder hide-on-focus" type="text" />
+                <label class="inHabits4 inputlabel">4.</label>
+
+                <input id="inHabits5" class="inHabits5 inputlabel placeholder hide-on-focus" type="text" />
+                <label class="inHabits5 inputlabel">5.</label>
+
+                <input id="inHabits6" class="inHabits6 inputlabel placeholder hide-on-focus" type="text" />
+                <label class="inHabits6 inputlabel">6.</label>
+            </div>
+
+
+
         </div>
 
         <div class="Notes">

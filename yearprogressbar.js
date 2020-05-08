@@ -105,7 +105,7 @@ function getDayLength(beginHour, endHour){
         //saveContent('taGoalsToday', 'lsGoalsToday', 'Start goals today here...');
         //saveContent('taGoalsMonth', 'lsGoalsMonth', 'Start goals month here...');
         //saveContent('taGoalsYear', 'lsGoalsYear', 'Start goals year here...');
-        saveContent('taHabits', 'lsHabits', 'Start habits here...');
+        //saveContent('taHabits', 'lsHabits', 'Start habits here...');
         saveContent('inGoalsToday1', 'lsGoalsToday1', 'goal 1 here...');
         saveContent('inGoalsToday2', 'lsGoalsToday2', 'goal 2 here...');
         saveContent('inGoalsToday3', 'lsGoalsToday3', 'goal 3 here...');
@@ -130,6 +130,13 @@ function getDayLength(beginHour, endHour){
         saveContent('inGoalsYear3', 'lsGoalsYear3', 'goal 3 here...');
         saveContent('inGoalsYear4', 'lsGoalsYear4', 'goal 4 here...');
 
+        saveContent('inHabits1', 'lsHabits1', 'habit 1 here...');
+        saveContent('inHabits2', 'lsHabits2', 'habit 2 here...');
+        saveContent('inHabits3', 'lsHabits3', 'habit 3 here...');
+        saveContent('inHabits4', 'lsHabits4', 'habit 4 here...');
+        saveContent('inHabits5', 'lsHabits5', 'habit 5 here...');
+        saveContent('inHabits6', 'lsHabits6', 'habit 6 here...');
+
     }
 
 
@@ -147,7 +154,7 @@ function getDayLength(beginHour, endHour){
         //loadContent('taGoalsToday', 'lsGoalsToday', 'Start goals today here...');
         //loadContent('taGoalsMonth', 'lsGoalsMonth', 'Start goals month here...');
         //loadContent('taGoalsYear', 'lsGoalsYear', 'Start goals year here...');
-        loadContent('taHabits', 'lsHabits', 'Start habits here...');
+        //loadContent('taHabits', 'lsHabits', 'Start habits here...');
         loadContent('inGoalsToday1', 'lsGoalsToday1', 'goal 1 here...');
         loadContent('inGoalsToday2', 'lsGoalsToday2', 'goal 2 here...');
         loadContent('inGoalsToday3', 'lsGoalsToday3', 'goal 3 here...');
@@ -171,6 +178,13 @@ function getDayLength(beginHour, endHour){
         loadContent('inGoalsYear2', 'lsGoalsYear2', 'goal 2 here...');
         loadContent('inGoalsYear3', 'lsGoalsYear3', 'goal 3 here...');
         loadContent('inGoalsYear4', 'lsGoalsYear4', 'goal 4 here...');
+
+        loadContent('inHabits1', 'lsHabits1', 'habit 1 here...');
+        loadContent('inHabits2', 'lsHabits2', 'habit 2 here...');
+        loadContent('inHabits3', 'lsHabits3', 'habit 3 here...');
+        loadContent('inHabits4', 'lsHabits4', 'habit 4 here...');
+        loadContent('inHabits5', 'lsHabits5', 'habit 5 here...');
+        loadContent('inHabits6', 'lsHabits6', 'habit 6 here...');
     }
 
 
