@@ -284,7 +284,7 @@
         .SubGrid {
             display: grid;
             grid-template-columns: 2.0fr 1fr;
-            grid-template-rows: 1.3fr 0.7fr;
+            grid-template-rows: 1.0fr 1.0fr;
             gap: 1px 1px;
             grid-template-areas: "GoalsMonth Habits"
                 "GoalsYear Habits";
@@ -346,7 +346,65 @@
             grid-area: GoalsYear;
             padding: var(--top-padding-amount) 0 0 var(--left-padding-amount);
             border-bottom: 0 !important;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+            grid-template-rows: 0.85fr 1fr 1.4fr;
+
+            grid-template-areas: "laGoalsYear spYearElapsed spYearElapsed spYearElapsed spYearElapsed spYearElapsed"
+                "inGoalsYear1 inGoalsYear1 inGoalsYear1 inGoalsYear2 inGoalsYear2 inGoalsYear2"
+                "inGoalsYear3 inGoalsYear3 inGoalsYear3 inGoalsYear4 inGoalsYear4 inGoalsYear4";
+            min-height: fit-content;
+            grid-gap: 0 40px;
         }
+
+
+        .laGoalsYear {
+            grid-area: laGoalsYear;
+            width: max-content;
+        }
+
+        .inGoalsYear1 {
+            grid-area: inGoalsYear1;
+        }
+
+        .inGoalsYear2 {
+            grid-area: inGoalsYear2;
+        }
+
+        .inGoalsYear3 {
+            grid-area: inGoalsYear3;
+        }
+
+        .inGoalsYear4 {
+            grid-area: inGoalsYear4;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         .Habits {
             grid-area: Habits;
@@ -531,8 +589,53 @@
 
 
 
-            <div class="GoalsYear"><label>Goals Year</label><textarea id="taGoalsYear"
-                    class="placeholder hide-on-focus"></textarea> </div>
+            <div class="GoalsYear">
+
+
+                <label class="laGoalsYear">Goals Year</label><span id="spYearElapsed"></span>
+
+
+
+                <label class="inGoalsYear1 inputlabel">1.</label>
+                <input id="inGoalsYear1" class="inGoalsYear1 inputlabel placeholder hide-on-focus" type="text" />
+
+                <input id="inGoalsYear2" class="inGoalsYear2 inputlabel placeholder hide-on-focus" type="text" />
+                <label class="inGoalsYear2 inputlabel">2.</label>
+
+                <input id="inGoalsYear3" class="inGoalsYear3 inputlabel placeholder hide-on-focus" type="text" />
+                <label class="inGoalsYear3 inputlabel">3.</label>
+
+                <input id="inGoalsYear4" class="inGoalsYear4 inputlabel placeholder hide-on-focus" type="text" />
+                <label class="inGoalsYear4 inputlabel">4.</label>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             <div class="Habits"><label>Habits</label><textarea id="taHabits"
                     class="placeholder hide-on-focus"></textarea></div>
         </div>
