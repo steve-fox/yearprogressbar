@@ -5,14 +5,25 @@
 var titleBefore = false;
 var titleBeforeText = "Year in progress: ";
 var titleAfterText = "% of year elapsed";
-let decimalPlaces = 1; // recommend 1 to 5, 0 rounds up, 5 lets you see some nice movement
+let decimalPlacesYear = 1; // recommend 1 to 5, 0 rounds up, 5 lets you see some nice movement
+let decimalPlacesDay = 1;
+var beginHour = 7;
+var endHour = 18;
 
 
 const currentYear = new Date().getFullYear();
+const currentMonth = new Date().getMonth();
+const currentDay = new Date().getDate();
+
+
+
 changeTitle();                                      // sets the title so there is no delay
+//changeProgressStatus();
+
 
     window.onload = function newUpdate() {
     update = setInterval(changeTitle, 800);
+        progress = this.setInterval(changeProgressStatus, 800);
         save = setInterval(saveAllContent, 2000);
         //loadContent('taNotes', 'lsNotes', 'Start here...');
         loadAllContent();
@@ -27,6 +38,16 @@ changeTitle();                                      // sets the title so there i
     // change title, formatted either before or after style
     titleBefore ? document.title = titleBeforeText + getYearProgress() + '%' : document.title = getYearProgress() + titleAfterText;
     }
+
+
+
+
+function changeProgressStatus(){
+
+
+    document.getElementById("spTodayElapsed").innerHTML = "[" + getDayProgress() + " % of today has elapsed]";
+}
+
 
 
     function isLeapYear() {
@@ -55,8 +76,27 @@ changeTitle();                                      // sets the title so there i
         // multiply by 100 so it's expressed as a percentage
         yearElapsedPercentage = (yearElapsed / (getTotalDays() * 24 * 60 * 60 * 1000)) * 100;
 
-        return yearElapsedPercentage.toFixed(decimalPlaces);
+        return yearElapsedPercentage.toFixed(decimalPlacesYear);
     }
+
+
+function getDayProgress() {
+
+    var now = new Date();
+    var dayStart = new Date(currentYear, currentMonth, currentDay, beginHour, 0, 0, 0);
+    var dayElapsed = now - dayStart;
+
+    // the days need to be multiplied by 24 hours, 60 mins, 60 seconds and 1000 milliseconds so we are using the same units
+    // multiply by 100 so it's expressed as a percentage
+    dayElapsedPercentage = (dayElapsed / (getDayLength(beginHour, endHour))) * 100;
+
+    return dayElapsedPercentage.toFixed(decimalPlacesDay);
+}
+
+
+function getDayLength(beginHour, endHour){
+    return (endHour - beginHour) * 60 * 60 * 1000;
+}
 
 
 
