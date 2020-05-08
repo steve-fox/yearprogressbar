@@ -62,11 +62,20 @@ changeTitle();                                      // sets the title so there i
 
     function saveAllContent() {
     saveContent('taNotes', 'lsNotes', 'Start here...');
-        saveContent('taGoalsToday', 'lsGoalsToday', 'Start goals today here...');
+        //saveContent('taGoalsToday', 'lsGoalsToday', 'Start goals today here...');
         saveContent('taGoalsWeek', 'lsGoalsWeek', 'Start goals week here...');
         saveContent('taGoalsMonth', 'lsGoalsMonth', 'Start goals month here...');
         saveContent('taGoalsYear', 'lsGoalsYear', 'Start goals year here...');
         saveContent('taHabits', 'lsHabits', 'Start habits here...');
+        saveContent('inGoalsToday1', 'lsGoalsToday1', 'goal 1 here...');
+        saveContent('inGoalsToday2', 'lsGoalsToday2', 'goal 2 here...');
+        saveContent('inGoalsToday3', 'lsGoalsToday3', 'goal 3 here...');
+        saveContent('inGoalsToday4', 'lsGoalsToday4', 'goal 4 here...');
+        saveContent('inGoalsToday5', 'lsGoalsToday5', 'goal 5 here...');
+        saveContent('inGoalsToday6', 'lsGoalsToday6', 'goal 6 here...');
+        saveContent('inGoalsToday7', 'lsGoalsToday7', 'goal 7 here...');
+        saveContent('inGoalsToday8', 'lsGoalsToday8', 'goal 8 here...');
+        saveContent('inGoalsToday9', 'lsGoalsToday9', 'goal 9 here...');
     }
 
 
@@ -81,11 +90,20 @@ changeTitle();                                      // sets the title so there i
 
     function loadAllContent() {
     loadContent('taNotes', 'lsNotes', 'Start here...');
-        loadContent('taGoalsToday', 'lsGoalsToday', 'Start goals today here...');
+        //loadContent('taGoalsToday', 'lsGoalsToday', 'Start goals today here...');
         loadContent('taGoalsWeek', 'lsGoalsWeek', 'Start goals week here...');
         loadContent('taGoalsMonth', 'lsGoalsMonth', 'Start goals month here...');
         loadContent('taGoalsYear', 'lsGoalsYear', 'Start goals year here...');
         loadContent('taHabits', 'lsHabits', 'Start habits here...');
+        loadContent('inGoalsToday1', 'lsGoalsToday1', 'goal 1 here...');
+        loadContent('inGoalsToday2', 'lsGoalsToday2', 'goal 2 here...');
+        loadContent('inGoalsToday3', 'lsGoalsToday3', 'goal 3 here...');
+        loadContent('inGoalsToday4', 'lsGoalsToday4', 'goal 4 here...');
+        loadContent('inGoalsToday5', 'lsGoalsToday5', 'goal 5 here...');
+        loadContent('inGoalsToday6', 'lsGoalsToday6', 'goal 6 here...');
+        loadContent('inGoalsToday7', 'lsGoalsToday7', 'goal 7 here...');
+        loadContent('inGoalsToday8', 'lsGoalsToday8', 'goal 8 here...');
+        loadContent('inGoalsToday9', 'lsGoalsToday9', 'goal 9 here...');
     }
 
 

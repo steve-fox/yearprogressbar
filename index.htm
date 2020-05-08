@@ -14,9 +14,10 @@
     <style>
         :root {
             --left-padding-amount: 10px;
-            --top-padding-amount: 10px;
+            --top-padding-amount: 20px;
             --border-colour: #c3c3c3;
             --border-colour: #dadada;
+            --placeholder-text-colour: #e3e3e3;
         }
 
 
@@ -52,15 +53,29 @@
         }
 
 
+        input {
+            width: 70%;
+            height: 15px;
+            border: none;
+            border-bottom: 1px solid #ddd;
+            margin-left: 18px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 0.9em;
+            color: #5f6772;
+            z-index: 1;
+        }
 
-
+        .inputlabel {
+            position: relative;
+            top: 3px;
+        }
 
 
 
         .grid-container {
             display: grid;
             grid-template-columns: 1.5fr 1.3fr 1.3fr 1.5fr;
-            grid-template-rows: 0.15fr 1.0fr 1.0fr 1fr 1fr 0.1fr;
+            grid-template-rows: 0.15fr 1.2fr 1.0fr 1fr 1fr 0.1fr;
             gap: 0px 0px;
             grid-template-areas:
                 "GutterLeft Header Header GutterRight"
@@ -85,7 +100,8 @@
 
         }
 
-        .grid-container label {
+        .grid-container label,
+        .grid-container span {
             text-transform: uppercase;
             font-size: 0.9em;
             color: #9c9c9c;
@@ -99,14 +115,74 @@
         .GoalsToday {
             grid-area: GoalsToday;
             padding: var(--top-padding-amount) 0 0 var(--left-padding-amount);
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+            ;
+
+
+            grid-template-rows: 0.85fr 1fr 1fr 1.4fr;
+
+            grid-template-areas: "laGoalsToday spTodayElapsed spTodayElapsed spTodayElapsed . . . . ."
+                "inGoalsToday1 inGoalsToday1 inGoalsToday1 inGoalsToday2 inGoalsToday2 inGoalsToday2 inGoalsToday3 inGoalsToday3 inGoalsToday3"
+                "inGoalsToday4 inGoalsToday4 inGoalsToday4 inGoalsToday5 inGoalsToday5 inGoalsToday5 inGoalsToday6 inGoalsToday6 inGoalsToday6"
+                "inGoalsToday7 inGoalsToday7 inGoalsToday7 inGoalsToday8 inGoalsToday8 inGoalsToday8 inGoalsToday9 inGoalsToday9 inGoalsToday9";
+            min-height: fit-content;
+            grid-gap: 0 40px;
+
         }
 
-        .ProgressBar {
-            grid-area: ProgressBar;
-            border-left: var(--border-colour) solid 1px;
-            padding: var(--top-padding-amount) 0 0 var(--left-padding-amount);
 
+        .spTodayElapsed {
+            grid-area: spTodayElapsed;
         }
+
+
+        .laGoalsToday {
+            grid-area: laGoalsToday;
+            width: max-content;
+        }
+
+        .inGoalsToday1 {
+            grid-area: inGoalsToday1;
+        }
+
+        .inGoalsToday2 {
+            grid-area: inGoalsToday2;
+        }
+
+        .inGoalsToday3 {
+            grid-area: inGoalsToday3;
+        }
+
+        .inGoalsToday4 {
+            grid-area: inGoalsToday4;
+        }
+
+        .inGoalsToday5 {
+            grid-area: inGoalsToday5;
+        }
+
+        .inGoalsToday6 {
+            grid-area: inGoalsToday6;
+        }
+
+        .inGoalsToday7 {
+            grid-area: inGoalsToday7;
+        }
+
+        .inGoalsToday8 {
+            grid-area: inGoalsToday8;
+        }
+
+        .inGoalsToday9 {
+            grid-area: inGoalsToday9;
+        }
+
+
+        #taGoalsToday {
+            grid-area: taGoalsToday;
+        }
+
 
         .GutterRight {
             grid-area: GutterRight;
@@ -196,21 +272,21 @@
 
 
         .placeholder::-webkit-input-placeholder {
-            color: #d3d3d3;
+            color: var(--placeholder-text-colour);
         }
 
         .placeholder:-moz-placeholder {
             /* Firefox 18- */
-            color: #d3d3d3;
+            color: var(--placeholder-text-colour);
         }
 
         .placeholder::-moz-placeholder {
             /* Firefox 19+ */
-            color: #d3d3d3;
+            color: var(--placeholder-text-colour);
         }
 
         .placeholder:-ms-input-placeholder {
-            color: #d3d3d3;
+            color: var(--placeholder-text-colour);
         }
 
         .placeholder.hide-on-focus:focus::-webkit-input-placeholder {
@@ -250,8 +326,41 @@
 
     <div class="grid-container">
         <div class="Header">Focus Now</div>
-        <div class="GoalsToday"><label>Goals Today</label>
-            <textarea id="taGoalsToday" class="placeholder hide-on-focus"></textarea></div>
+        <div class="GoalsToday">
+            <label class="laGoalsToday">Goals Today </label><span class="spTodayElapsed">&nbsp;&nbsp;&nbsp;[17% of today
+                has elapsed]</span>
+
+            <label class="inGoalsToday1 inputlabel">1.</label>
+            <input id="inGoalsToday1" class="inGoalsToday1 inputlabel placeholder hide-on-focus" type="text" />
+
+
+            <input id="inGoalsToday2" class="inGoalsToday2 inputlabel placeholder hide-on-focus" type="text" />
+            <label class="inGoalsToday2 inputlabel">2.</label>
+
+            <input id="inGoalsToday3" class="inGoalsToday3 inputlabel placeholder hide-on-focus" type="text" />
+            <label class="inGoalsToday3 inputlabel">3.</label>
+
+            <input id="inGoalsToday4" class="inGoalsToday4 inputlabel placeholder hide-on-focus" type="text" />
+            <label class="inGoalsToday4 inputlabel">4.</label>
+
+            <input id="inGoalsToday5" class="inGoalsToday5 inputlabel placeholder hide-on-focus" type="text" />
+            <label class="inGoalsToday5 inputlabel">5.</label>
+
+            <input id="inGoalsToday6" class="inGoalsToday6 inputlabel placeholder hide-on-focus" type="text" />
+            <label class="inGoalsToday6 inputlabel">6.</label>
+
+            <input id="inGoalsToday7" class="inGoalsToday7 inputlabel placeholder hide-on-focus" type="text" />
+            <label class="inGoalsToday7 inputlabel">7.</label>
+
+            <input id="inGoalsToday8" class="inGoalsToday8 inputlabel placeholder hide-on-focus" type="text" />
+            <label class="inGoalsToday8 inputlabel">8.</label>
+
+            <input id="inGoalsToday9" class="inGoalsToday9 inputlabel placeholder hide-on-focus" type="text" />
+            <label class="inGoalsToday9 inputlabel">9.</label>
+
+
+        </div>
+
 
 
         <div class="GutterRight"></div>
