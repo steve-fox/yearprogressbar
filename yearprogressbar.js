@@ -7,6 +7,8 @@ var titleBeforeText = "Year in progress: ";
 var titleAfterText = "% of year elapsed";
 let decimalPlacesYear = 1; // recommend 1 to 5, 0 rounds up, 5 lets you see some nice movement
 let decimalPlacesDay = 1;
+let decimalPlacesWeek = 1;
+let decimalPlacesMonth =1;
 var beginHour = 7;
 var endHour = 18;
 
@@ -46,6 +48,9 @@ function changeProgressStatus(){
 
 
     document.getElementById("spTodayElapsed").innerHTML = "[" + getDayProgress() + " % of today has elapsed]";
+    document.getElementById("spWeekElapsed").innerHTML = "[" + getWeekProgress() + " % of week has elapsed]";
+    document.getElementById("spMonthElapsed").innerHTML = "[" + getMonthProgress() + " % of month has elapsed]";
+    document.getElementById("spYearElapsed").innerHTML = "[" + getYearProgress() + " % of year has elapsed]";
 }
 
 
@@ -97,6 +102,71 @@ function getDayProgress() {
 function getDayLength(beginHour, endHour){
     return (endHour - beginHour) * 60 * 60 * 1000;
 }
+
+
+
+
+function getWeekProgress() {
+
+    var now = new Date();
+    var dayOfWeek = now.getDay();
+
+    var weekStart = new Date(currentYear, currentMonth, getWeekBeginDate(dayOfWeek), 0, 0, 0, 0); // date of last monday or today if today is monday
+    var weekElapsed = now - weekStart;
+
+    // a week in milliseconds is a multiplication of  7 days, 24 hours, 60 mins, 60 seconds and 1000 milliseconds
+    // multiply by 100 so it's expressed as a percentage
+    weekElapsedPercentage = (weekElapsed / (7 * 24 * 60 * 60 * 1000)) * 100;
+
+    return weekElapsedPercentage.toFixed(decimalPlacesWeek);
+}
+
+
+// dayofweek is a number of the day where Sunday is 0
+// week progress is based on Monday as start of the week
+// in the first week of a month this may return a negative value which should result in weekStart being from the previous month
+function getWeekBeginDate(dayOfWeek) {
+    var weekBeginDate;
+
+    if (dayOfWeek == 1) { // if it's a Monday then today is the week beginning
+        weekBeginDate = currentDay;
+    }
+    else {
+        // if it's Tuesday 12th then we need to do 12-1 to get to the start of the week ie 11th
+        // Tues is 2 when using getDay ie Sunday is start of week in Javascript
+        // therefore subtract 1 to allow for this
+        weekBeginDate = currentDay - (dayOfWeek-1);
+    }
+
+    return weekBeginDate;
+}
+
+
+
+
+
+function getMonthProgress() {
+
+    var now = new Date();
+    var monthStart = new Date(currentYear, currentMonth, 1, 1, 0, 0, 0);
+    var monthElapsed = now - monthStart;
+    var DaysInMonth = new Date(currentYear, (currentMonth+1), 0).getDate();
+
+//alert(DaysInMonth);
+
+    // the days need to be multiplied by 24 hours, 60 mins, 60 seconds and 1000 milliseconds so we are using the same units
+    // multiply by 100 so it's expressed as a percentage
+    monthElapsedPercentage = (monthElapsed / (DaysInMonth * 24 * 60 * 60 * 1000)) * 100;
+
+    return monthElapsedPercentage.toFixed(decimalPlacesMonth);
+}
+
+
+
+
+
+
+
 
 
 
