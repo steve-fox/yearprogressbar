@@ -31,7 +31,7 @@
             font-size: 1.3em;
             resize: none;
             width: 98%;
-            height: 80%;
+            height: 75%;
 
             padding: 0;
             margin-top: 15px;
@@ -42,6 +42,7 @@
             color: #4a525e;
             color: #5f6772;
             min-height: 100px;
+
             ;
         }
 
@@ -72,10 +73,14 @@
 
 
 
+
+
+
+
         .grid-container {
             display: grid;
-            grid-template-columns: 1.5fr 1.3fr 1.3fr 1.5fr;
-            grid-template-rows: 0.15fr 1.2fr 1.0fr 1fr 1fr 0.1fr;
+            grid-template-columns: 1.5fr minmax(500px, 1.3fr) minmax(500px, 1.3fr) 1.5fr;
+            grid-template-rows: minmax(30px, 0.15fr) minmax(50px, 1.2fr) minmax(50px, 1fr) minmax(200px, 1.7fr) minmax(200px, 0.8fr) minmax(20px, 0.1fr);
             gap: 0px 0px;
             grid-template-areas:
                 "GutterLeft Header Header GutterRight"
@@ -85,7 +90,8 @@
                 "GutterLeft Notes Notes GutterRight"
                 "GutterLeft Footer Footer GutterRight";
             width: 100vw;
-            height: 100vh;
+            min-height: 100vh;
+
         }
 
 
@@ -108,7 +114,10 @@
             font-family: 'Montserrat', sans-serif;
         }
 
-
+        .grid-container span {
+            font-style: italic;
+            text-transform: none;
+        }
 
 
 
@@ -591,7 +600,7 @@
     <div class="grid-container">
         <div class="Header">Focus Now</div>
         <div class="GoalsToday">
-            <label class="laGoalsToday">Goals Today </label><span id="spTodayElapsed"></span>
+            <label class="laGoalsToday">Goals Today </label><span class="progress" id="spTodayElapsed"></span>
 
             <label class="inGoalsToday1 inputlabel">1.</label>
             <input id="inGoalsToday1" class="inGoalsToday1 inputlabel placeholder hide-on-focus" type="text" />
@@ -628,7 +637,8 @@
 
         <div class="GutterRight"></div>
         <div class="GutterLeft"></div>
-        <div class="GoalsWeek"><label class="laGoalsToday">Goals Week</label><span id="spWeekElapsed"></span>
+        <div class="GoalsWeek"><label class="laGoalsToday">Goals Week</label><span class="progress"
+                id="spWeekElapsed"></span>
 
             <label class="inGoalsWeek1 inputlabel">1.</label>
             <input id="inGoalsWeek1" class="inGoalsWeek1 inputlabel placeholder hide-on-focus" type="text" />
@@ -657,7 +667,7 @@
         <div class="SubGrid">
 
             <div class="GoalsMonth">
-                <label class="laGoalsMonth">Goals Month</label><span id="spMonthElapsed"></span>
+                <label class="laGoalsMonth">Goals Month</label><span class="progress" id="spMonthElapsed"></span>
 
                 <label class="inGoalsMonth1 inputlabel">1.</label>
                 <input id="inGoalsMonth1" class="inGoalsMonth1 inputlabel placeholder hide-on-focus" type="text" />
@@ -677,7 +687,7 @@
             <div class="GoalsYear">
 
 
-                <label class="laGoalsYear">Goals Year</label><span id="spYearElapsed"></span>
+                <label class="laGoalsYear">Goals Year</label><span class="progress" id="spYearElapsed"></span>
 
 
 
@@ -751,7 +761,7 @@
 
         <div class="Notes">
             <label>Notes</label>
-            <textarea id="taNotes" class="placeholder hide-on-focus"></textarea>
+            <textarea id="taNotes" rows="6" class="placeholder hide-on-focus"></textarea>
             <!--<button onclick="saveContent('taNotes', 'lsNotes', 'Start here...')">Save</button>-->
             <!--<button onclick="loadContent('taNotes', 'lsNotes', 'Start here...')">Load</button>-->
         </div>

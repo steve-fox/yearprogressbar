@@ -47,10 +47,10 @@ changeTitle();                                      // sets the title so there i
 function changeProgressStatus(){
 
 
-    document.getElementById("spTodayElapsed").innerHTML = "[" + getDayProgress() + " % of today has elapsed]";
-    document.getElementById("spWeekElapsed").innerHTML = "[" + getWeekProgress() + " % of week has elapsed]";
-    document.getElementById("spMonthElapsed").innerHTML = "[" + getMonthProgress() + " % of month has elapsed]";
-    document.getElementById("spYearElapsed").innerHTML = "[" + getYearProgress() + " % of year has elapsed]";
+    document.getElementById("spTodayElapsed").innerHTML = "" + getDayProgress() + " % of today has elapsed";
+    document.getElementById("spWeekElapsed").innerHTML = "" + getWeekProgress() + " % of week has elapsed";
+    document.getElementById("spMonthElapsed").innerHTML = "" + getMonthProgress() + " % of month has elapsed";
+    document.getElementById("spYearElapsed").innerHTML = "" + getYearProgress() + " % of year has elapsed";
 }
 
 
