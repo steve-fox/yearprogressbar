@@ -15,6 +15,8 @@ let decimalPlacesWeek = 1;
 let decimalPlacesMonth =1;
 var beginHour = 7;
 var endHour = 18;
+var beginDay = 1;
+var WeekDuration= 5;
 
 
 const currentYear = new Date().getFullYear();
@@ -115,13 +117,15 @@ function getWeekProgress() {
 
     var now = new Date();
     var dayOfWeek = now.getDay();
+    //var weekDuration = Maths.abs(beginDay-endDay) + 1;
 
     var weekStart = new Date(currentYear, currentMonth, getWeekBeginDate(dayOfWeek), 0, 0, 0, 0); // date of last monday or today if today is monday
     var weekElapsed = now - weekStart;
 
     // a week in milliseconds is a multiplication of  7 days, 24 hours, 60 mins, 60 seconds and 1000 milliseconds
     // multiply by 100 so it's expressed as a percentage
-    weekElapsedPercentage = (weekElapsed / (7 * 24 * 60 * 60 * 1000)) * 100;
+    weekElapsedPercentage = (weekElapsed / (WeekDuration * 24 * 60 * 60 * 1000)) * 100;
+    //weekElapsedPercentage = (weekElapsed / ((beginDay - (endDay + 1))) * 24 * 60 * 60 * 1000)) * 100;
 
     return weekElapsedPercentage.toFixed(decimalPlacesWeek);
 }
@@ -133,18 +137,27 @@ function getWeekProgress() {
 function getWeekBeginDate(dayOfWeek) {
     var weekBeginDate;
 
-    if (dayOfWeek == 1) { // if it's a Monday then today is the week beginning
+    if (dayOfWeek == beginDay) { // if it's a Monday then today is the week beginning
         weekBeginDate = currentDay;
     }
-    else {
+    else if (dayOfWeek > beginDay)  {
         // if it's Tuesday 12th then we need to do 12-1 to get to the start of the week ie 11th
         // Tues is 2 when using getDay ie Sunday is start of week in Javascript
         // therefore subtract 1 to allow for this
-        weekBeginDate = currentDay - (dayOfWeek-1);
+        weekBeginDate = currentDay - (dayOfWeek - beginDay);
+    }
+    else if (dayOfWeek < beginDay) {
+        // if it's Tuesday 12th then we need to do 12-1 to get to the start of the week ie 11th
+        // Tues is 2 when using getDay ie Sunday is start of week in Javascript
+        // therefore subtract 1 to allow for this
+        weekBeginDate = currentDay - ((7 + dayOfWeek) - beginDay);
     }
 
     return weekBeginDate;
 }
+
+
+
 
 
 
