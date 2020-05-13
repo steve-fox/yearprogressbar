@@ -1,10 +1,14 @@
+/* eslint-disable no-use-before-define */
+/* eslint-disable no-unused-expressions */
+/* eslint-disable linebreak-style */
+/* eslint-disable prettier/prettier */
 
 // eslint-disable-next-line linebreak-style
 
     // choices
 var titleBefore = false;
-var titleBeforeText = "Year in progress: ";
-var titleAfterText = "% of year elapsed";
+var titleBeforeText = 'Year in progress: ';
+var titleAfterText = '% of year elapsed';
 let decimalPlacesYear = 1; // recommend 1 to 5, 0 rounds up, 5 lets you see some nice movement
 let decimalPlacesDay = 1;
 let decimalPlacesWeek = 1;
@@ -38,6 +42,7 @@ changeTitle();                                      // sets the title so there i
 
     function changeTitle() {
     // change title, formatted either before or after style
+    // eslint-disable-next-line prefer-template
     titleBefore ? document.title = titleBeforeText + getYearProgress() + '%' : document.title = getYearProgress() + titleAfterText;
     }
 
@@ -47,10 +52,10 @@ changeTitle();                                      // sets the title so there i
 function changeProgressStatus(){
 
 
-    document.getElementById("spTodayElapsed").innerHTML = "" + getDayProgress() + " % of today has elapsed";
-    document.getElementById("spWeekElapsed").innerHTML = "" + getWeekProgress() + " % of week has elapsed";
-    document.getElementById("spMonthElapsed").innerHTML = "" + getMonthProgress() + " % of month has elapsed";
-    document.getElementById("spYearElapsed").innerHTML = "" + getYearProgress() + " % of year has elapsed";
+    document.getElementById('spTodayElapsed').innerHTML = '' + getDayProgress() + ' % of today has elapsed';
+    document.getElementById('spWeekElapsed').innerHTML = '' + getWeekProgress() + ' % of week has elapsed';
+    document.getElementById('spMonthElapsed').innerHTML = '' + getMonthProgress() + ' % of month has elapsed';
+    document.getElementById('spYearElapsed').innerHTML = '' + getYearProgress() + ' % of year has elapsed';
 }
 
 
@@ -172,10 +177,6 @@ function getMonthProgress() {
 
     function saveAllContent() {
     saveContent('taNotes', 'lsNotes', 'Start here...');
-        //saveContent('taGoalsToday', 'lsGoalsToday', 'Start goals today here...');
-        //saveContent('taGoalsMonth', 'lsGoalsMonth', 'Start goals month here...');
-        //saveContent('taGoalsYear', 'lsGoalsYear', 'Start goals year here...');
-        //saveContent('taHabits', 'lsHabits', 'Start habits here...');
         saveContent('inGoalsToday1', 'lsGoalsToday1', 'goal 1 here...');
         saveContent('inGoalsToday2', 'lsGoalsToday2', 'goal 2 here...');
         saveContent('inGoalsToday3', 'lsGoalsToday3', 'goal 3 here...');
@@ -221,10 +222,6 @@ function getMonthProgress() {
 
     function loadAllContent() {
     loadContent('taNotes', 'lsNotes', 'Start here...');
-        //loadContent('taGoalsToday', 'lsGoalsToday', 'Start goals today here...');
-        //loadContent('taGoalsMonth', 'lsGoalsMonth', 'Start goals month here...');
-        //loadContent('taGoalsYear', 'lsGoalsYear', 'Start goals year here...');
-        //loadContent('taHabits', 'lsHabits', 'Start habits here...');
         loadContent('inGoalsToday1', 'lsGoalsToday1', 'goal 1 here...');
         loadContent('inGoalsToday2', 'lsGoalsToday2', 'goal 2 here...');
         loadContent('inGoalsToday3', 'lsGoalsToday3', 'goal 3 here...');
@@ -259,7 +256,7 @@ function getMonthProgress() {
 
 
     function loadContent(inputID, storageID, placeholderText) {
-        document.getElementById(inputID).setAttribute("placeholder", '');
+        document.getElementById(inputID).setAttribute('placeholder', '');
         var content = localStorage.getItem(storageID);
 
         if (content.length > 0) {
@@ -267,7 +264,7 @@ function getMonthProgress() {
             //document.getElementById(inputID).focus();
         }
         else {
-            document.getElementById(inputID).setAttribute("placeholder", placeholderText);
+            document.getElementById(inputID).setAttribute('placeholder', placeholderText);
         }
 
     }
