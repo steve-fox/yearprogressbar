@@ -47,7 +47,7 @@
         .grid-container {
             display: grid;
             grid-template-columns: 1.5fr minmax(500px, 1.3fr) minmax(500px, 1.3fr) 1.5fr;
-            grid-template-rows: minmax(30px, 0.15fr) minmax(50px, 1.2fr) minmax(50px, 1fr) minmax(200px, 1.7fr) minmax(200px, 0.8fr) minmax(20px, 0.1fr);
+            grid-template-rows: minmax(30px, 0.25fr) minmax(50px, 1.2fr) minmax(50px, 1fr) minmax(200px, 1.7fr) minmax(150px, 0.8fr) minmax(20px, 0.1fr);
             gap: 0px 0px;
             grid-template-areas:
                 "GutterLeft Header Header GutterRight"
@@ -361,6 +361,24 @@
             grid-area: Header;
         }
 
+        #logo {
+            max-height: 28px;
+            margin-top: 11px;
+            opacity: 0.6;
+        }
+
+        .logo {
+            font-size: 1.3em !important;
+            position: relative;
+            bottom: 6px;
+            left: 10px;
+            color: #666 !important;
+        }
+
+        span.darker {
+            color: #666 !important;
+        }
+
         /* ===Footer=== */
         .Footer {
             grid-area: Footer;
@@ -487,7 +505,9 @@
 
 
     <div class="grid-container">
-        <div class="Header">Focus Now</div>
+        <div class="Header"><img id="logo" src="img/focus-now-logo.png" /><span class="logo"><span
+                    class="darker">Focus</span>
+                Now</span></div>
         <div class="GoalsToday">
             <label class="laGoalsToday">Goals Today </label><span class="progress" id="spTodayElapsed"></span>
 
