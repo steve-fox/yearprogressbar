@@ -31,12 +31,14 @@
             --border-colour: #dadada;
             --placeholder-text-colour: #e3e3e3;
             --gutter-background-colour: #efefef;
+            --gutter-background-colour: #fbfbfb;
             --paper-background-colour: #ffffff;
             --text-input-colour: #5f6772;
             --text-input-font-family: 'Open Sans', sans-serif;
             --text-input-underline-colour: #dddddd;
             --text-header-colour: #9c9c9c;
             --text-header-font-family: 'Montserrat', sans-serif;
+            --gutter-background-image-url: url(https://brave-bell-30868b.netlify.app/img/double-bubble-outline.png);
         }
 
         body {
@@ -47,7 +49,7 @@
 
         .grid-container {
             display: grid;
-            grid-template-columns: 1.5fr minmax(500px, 1.3fr) minmax(500px, 1.3fr) 1.5fr;
+            grid-template-columns: 1.5fr minmax(520px, 1.4fr) minmax(520px, 1.4fr) 1.5fr;
             grid-template-rows: minmax(30px, 0.25fr) minmax(50px, 1.2fr) minmax(50px, 1fr) minmax(200px, 1.7fr) minmax(150px, 0.8fr) minmax(20px, 0.1fr);
             gap: 0px 0px;
             grid-template-areas:
@@ -88,6 +90,8 @@
                 "inGoalsToday7 inGoalsToday7 inGoalsToday7 inGoalsToday8 inGoalsToday8 inGoalsToday8 inGoalsToday9 inGoalsToday9 inGoalsToday9";
             min-height: fit-content;
             grid-gap: 0 40px;
+            margin-right: 20px;
+            margin-left: 20px;
         }
 
         #spTodayElapsed {
@@ -145,17 +149,20 @@
 
         .GutterRight {
             grid-area: GutterRight;
-            background-colorx: var(--gutter-background-colour);
-            border-leftx: var(--paper-background-colour) solid 20px;
+            background-color: var(--gutter-background-colour);
+            background: var(--gutter-background-image-url);
+            background-repeat: repeat;
+            box-shadow: inset 3px -1px 10px -9px black;
 
-            background: url(C:\Projects\yearprogressbar\img\double-bubble-outline.png);
-            background-repeat: repeat-x;
+
         }
 
         .GutterLeft {
             grid-area: GutterLeft;
             background-color: var(--gutter-background-colour);
-            border-right: var(--paper-background-colour) solid 20px;
+            background: var(--gutter-background-image-url);
+            background-repeat: repeat;
+            box-shadow: inset -3px 1px 10px -9px black;
         }
 
 
@@ -172,6 +179,9 @@
                 "inGoalsWeek4 inGoalsWeek4 inGoalsWeek4 inGoalsWeek5 inGoalsWeek5 inGoalsWeek5 inGoalsWeek6 inGoalsWeek6 inGoalsWeek6";
             min-height: fit-content;
             grid-gap: 0 40px;
+            margin-right: 20px;
+            margin-left: 20px;
+
         }
 
         #spWeekElapsed {
@@ -218,6 +228,8 @@
             grid-template-areas: "GoalsMonth Habits"
                 "GoalsYear Habits";
             grid-area: SubGrid;
+            margin-right: 20px;
+            margin-left: 20px;
         }
 
 
@@ -358,11 +370,15 @@
         .Notes {
             grid-area: Notes;
             padding: var(--top-padding-amount) 0 0 var(--left-padding-amount);
+            margin-right: 20px;
+            margin-left: 20px;
         }
 
         /* ===Header=== */
         .Header {
             grid-area: Header;
+            margin-right: 20px;
+            margin-left: 20px;
         }
 
         #logo {
@@ -376,6 +392,7 @@
         /* ===Footer=== */
         .Footer {
             grid-area: Footer;
+
         }
 
 
