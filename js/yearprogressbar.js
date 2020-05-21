@@ -1,9 +1,16 @@
 /* eslint-disable */
+let titleBeforeText = 'Year in progress: '
+let titleAfterText = '% of year elapsed'
 
-    // choices
-var titleBefore = false;
-var titleBeforeText = 'Year in progress: ';
-var titleAfterText = '% of year elapsed';
+let dayProgressBeforeText = ' '
+let dayProgressAfterText = '% of today has elapsed a'
+let weekProgressBeforeText = ' '
+let weekProgressAfterText = '% of week has elapsed b '
+let monthProgressBeforeText = ' '
+let monthProgressAfterText = '% of month has elapsed c'
+let yearProgressBeforeText = ' '
+let yearProgressAfterText = '% of year has elapsed d'
+
 let decimalPlacesYear = 1; // recommend 1 to 5, 0 rounds up, 5 lets you see some nice movement
 let decimalPlacesDay = 1;
 let decimalPlacesWeek = 1;
@@ -38,21 +45,17 @@ changeTitle();                                      // sets the title so there i
 
 
     function changeTitle() {
-    // change title, formatted either before or after style
-    // eslint-disable-next-line prefer-template
-    titleBefore ? document.title = titleBeforeText + getYearProgress() + '%' : document.title = getYearProgress() + titleAfterText;
+        document.title = `${titleBeforeText}${getYearProgress()}${titleAfterText}`;
     }
 
 
 
 
 function changeProgressStatus(){
-
-
-    document.getElementById('spTodayElapsed').innerHTML = '' + getDayProgress() + ' % of today has elapsed';
-    document.getElementById('spWeekElapsed').innerHTML = '' + getWeekProgress() + ' % of week has elapsed';
-    document.getElementById('spMonthElapsed').innerHTML = '' + getMonthProgress() + ' % of month has elapsed';
-    document.getElementById('spYearElapsed').innerHTML = '' + getYearProgress() + ' % of year has elapsed';
+    document.getElementById('spTodayElapsed').innerHTML = `${dayProgressBeforeText}${getDayProgress()}${dayProgressAfterText}`;
+    document.getElementById('spWeekElapsed').innerHTML = `${weekProgressBeforeText}${getWeekProgress()}${weekProgressAfterText}`;
+    document.getElementById('spMonthElapsed').innerHTML = `${monthProgressBeforeText}${getMonthProgress()}${monthProgressAfterText}`;
+    document.getElementById('spYearElapsed').innerHTML = `${yearProgressBeforeText}${getYearProgress()}${yearProgressAfterText}`;
 }
 
 
