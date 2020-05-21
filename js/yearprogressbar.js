@@ -2,14 +2,16 @@
 let titleBeforeText = 'Year in progress: '
 let titleAfterText = '% of year elapsed'
 
-let dayProgressBeforeText = ' '
-let dayProgressAfterText = '% of today has elapsed a'
-let weekProgressBeforeText = ' '
-let weekProgressAfterText = '% of week has elapsed b '
-let monthProgressBeforeText = ' '
-let monthProgressAfterText = '% of month has elapsed c'
-let yearProgressBeforeText = ' '
-let yearProgressAfterText = '% of year has elapsed d'
+let dayProgressBeforeText = ' ';
+let dayProgressAfterText = '% of today has elapsed';
+let dayOvertimeText = ' (working day over)';
+let weekProgressBeforeText = ' ';
+let weekProgressAfterText = '% of week has elapsed';
+let weekOvertimeText = ' (working week over)';
+let monthProgressBeforeText = ' ';
+let monthProgressAfterText = '% of month has elapsed';
+let yearProgressBeforeText = ' ';
+let yearProgressAfterText = '% of year has elapsed';
 
 let decimalPlacesYear = 1; // recommend 1 to 5, 0 rounds up, 5 lets you see some nice movement
 let decimalPlacesDay = 1;
@@ -28,18 +30,13 @@ const currentDay = new Date().getDate();
 
 
 changeTitle();                                      // sets the title so there is no delay
-//changeProgressStatus();
 
 
     window.onload = function newUpdate() {
     update = setInterval(changeTitle, 800);
         progress = this.setInterval(changeProgressStatus, 800);
         save = setInterval(saveAllContent, 2000);
-        //loadContent('taNotes', 'lsNotes', 'Start here...');
         loadAllContent();
-
-
-
     }
 
 
@@ -50,13 +47,30 @@ changeTitle();                                      // sets the title so there i
 
 
 
+    // make the progress texts to show the day, week, month, year progress
+    // they compile use customisable messages that can go either side of the progress percentage
+    // in the case of week and day, there is the option of an extra message that indicates that we are over the working day (and hence the percentage maybe over 100)
+    function changeProgressStatus(){
 
-function changeProgressStatus(){
-    document.getElementById('spTodayElapsed').innerHTML = `${dayProgressBeforeText}${getDayProgress()}${dayProgressAfterText}`;
-    document.getElementById('spWeekElapsed').innerHTML = `${weekProgressBeforeText}${getWeekProgress()}${weekProgressAfterText}`;
-    document.getElementById('spMonthElapsed').innerHTML = `${monthProgressBeforeText}${getMonthProgress()}${monthProgressAfterText}`;
-    document.getElementById('spYearElapsed').innerHTML = `${yearProgressBeforeText}${getYearProgress()}${yearProgressAfterText}`;
-}
+        // 2 versions are chosen depending if the day percentage is work day or whole day
+        if (getDayProgress() >= 100){
+            document.getElementById('spTodayElapsed').innerHTML = `${dayProgressBeforeText}${getDayProgress()}${dayProgressAfterText}${dayOvertimeText}`;
+        }
+        else{
+            document.getElementById('spTodayElapsed').innerHTML = `${dayProgressBeforeText}${getDayProgress()}${dayProgressAfterText}`;
+        }
+
+        // 2 versions are chosen from depending if the week percentage is work week or whole week
+        if (getWeekProgress() >= 100){
+            document.getElementById('spWeekElapsed').innerHTML = `${weekProgressBeforeText}${getWeekProgress()}${weekProgressAfterText}${weekOvertimeText}`;
+        }
+        else{
+        document.getElementById('spWeekElapsed').innerHTML = `${weekProgressBeforeText}${getWeekProgress()}${weekProgressAfterText}`;
+        }
+
+        document.getElementById('spMonthElapsed').innerHTML = `${monthProgressBeforeText}${getMonthProgress()}${monthProgressAfterText}`;
+        document.getElementById('spYearElapsed').innerHTML = `${yearProgressBeforeText}${getYearProgress()}${yearProgressAfterText}`;
+    }
 
 
 
