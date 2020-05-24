@@ -44,6 +44,7 @@
         .grid-container {
             display: grid;
             grid-template-columns: 1.5fr minmax(520px, 1.4fr) minmax(520px, 1.4fr) 1.5fr;
+
             grid-template-rows: minmax(30px, 0.32fr) minmax(50px, 1.2fr) minmax(50px, 1fr) minmax(200px, 1.7fr) minmax(150px, 0.8fr) minmax(20px, 0.1fr);
             gap: 0px 0px;
             grid-template-areas:
@@ -53,7 +54,6 @@
                 "GutterLeft SubGrid SubGrid GutterRight"
                 "GutterLeft Notes Notes GutterRight"
                 "GutterLeft Footer Footer GutterRight";
-            width: 100vw;
             min-height: 100vh;
             background-color: var(--paper-background-colour);
         }
@@ -504,3 +504,103 @@
         .placeholder.hide-on-focus:focus:-ms-input-placeholder {
             color: var(--paper-background-colour);
         }
+
+
+
+
+
+
+
+
+
+
+
+
+        /* ===============
+        MEDIA QUERIES
+        =============== */
+
+
+        /* On screens that are 600px or less, set the background color to olive */
+        @media screen and (max-width: 1080px) {
+
+
+
+
+        .grid-container {
+            grid-template-columns:  1fr 1fr ;
+            grid-template-rows: repeat(fit-content);
+            grid-template-areas:
+                "Header Header"
+                "GoalsToday GoalsToday"
+                "GoalsWeek GoalsWeek"
+                "SubGrid SubGrid"
+                "Notes Notes"
+                "Footer Footer";
+        }
+
+        }
+
+
+        @media screen and (max-width: 550px) {
+
+.GoalsToday {
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto;
+            grid-template-areas: "laGoalsToday ."
+            "spTodayElapsed spTodayElapsed"
+                "inGoalsToday1 inGoalsToday2"
+                "inGoalsToday3  inGoalsToday4"
+                "inGoalsToday5 inGoalsToday6"
+                "inGoalsToday7 inGoalsToday8"
+                "inGoalsToday9 .";
+        }
+
+        .GoalsWeek {
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto;
+            grid-template-areas: "laGoalsToday ."
+            "spWeekElapsed spWeekElapsed"
+                "inGoalsWeek1 inGoalsWeek2"
+                "inGoalsWeek3 inGoalsWeek4"
+                "inGoalsWeek5 inGoalsWeek6";
+        }
+
+        .SubGrid {
+            grid-template-columns: 1fr;
+            grid-template-rows: auto;
+            grid-template-areas: "GoalsMonth"
+            "GoalsYear"
+                "Habits";
+        }
+
+        .GoalsMonth {
+
+            grid-template-rows: repeat(fit-content);
+
+        }
+
+
+        .GoalsYear {
+            grid-template-rows: repeat(fit-content);
+
+        }
+
+        .Habits{
+            grid-template-columns: 1fr 1fr;
+            grid-template-areas: "laHabits ."
+                "inHabits1 inHabits2"
+                "inHabits3 inHabits4"
+                "inHabits5 inHabits6";
+            grid-template-rows: repeat(fit-content);
+            border-left: none;
+            padding-left: 10px;
+        }
+
+
+        .progress{margin-left: 0 !important;}
+
+
+        }
+
+
