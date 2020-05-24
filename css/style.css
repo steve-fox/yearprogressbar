@@ -523,8 +523,10 @@
         /* On screens that are 600px or less, set the background color to olive */
         @media screen and (max-width: 1080px) {
             .grid-container {
+                min-height: 100vh;
                 grid-template-columns:  1fr 1fr ;
-                grid-template-rows: repeat(fit-content);
+                grid-auto-rowsx: max-content;
+                grid-template-rows: minmax(65px, 0.12fr) minmax(250px, 1.2fr) minmax(150px, 1fr) minmax(680px, 2fr) minmax(150px, 0.8fr) minmax(20px, 0.1fr);
                 grid-template-areas:
                     "Header Header"
                     "GoalsToday GoalsToday"
@@ -562,7 +564,7 @@
 
             .SubGrid {
                 grid-template-columns: 1fr;
-                grid-template-rows: auto;
+                grid-template-rows: 1fr 1fr 1.1fr;
                 grid-template-areas: "GoalsMonth"
                 "GoalsYear"
                     "Habits";
@@ -570,7 +572,7 @@
 
             .GoalsMonth {
                 grid-template-columns: 1fr 1fr;
-                grid-template-rows: repeat(fit-content);
+                grid-auto-rows: minmax(35px, 1fr);
                 grid-template-areas: "laGoalsMonth ."
                 "spMonthElapsed spMonthElapsed"
                     "inGoalsMonth1 inGoalsMonth2"
@@ -580,11 +582,12 @@
 
             .GoalsYear {
                 grid-template-columns: 1fr 1fr;
-                grid-template-rows: repeat(fit-content);
+                grid-auto-rows: minmax(35px, 1fr);
                 grid-template-areas: "laGoalsYear ."
                 "spYearElapsed spYearElapsed"
                     "inGoalsYear1 inGoalsYear2"
                     "inGoalsYear3 inGoalsYear4";
+                border-bottom: var(--border-colour) solid 1px !important;
             }
 
             .Habits{
@@ -593,7 +596,7 @@
                     "inHabits1 inHabits2"
                     "inHabits3 inHabits4"
                     "inHabits5 inHabits6";
-                grid-template-rows: repeat(fit-content);
+                grid-template-rows: 0.75fr 1fr 1fr 1fr;
                 border-left: none;
                 padding-left: 10px;
             }
