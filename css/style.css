@@ -376,6 +376,7 @@
             fill: black;
             fill-opacity: 0.6;
             width: 25%;width: 21%;
+            min-width:210px;
             shape-rendering: geometricPrecision;
             position: relative;
             bottomx: 8px;
