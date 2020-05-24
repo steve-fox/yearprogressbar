@@ -13,9 +13,9 @@
             --gutter-background-colour: #fbfbfb;
             --paper-background-colour: #ffffff;
             --text-input-colour: #5f6772;
-            --text-input-font-family: 'Open Sans', sans-serif;
             --text-input-underline-colour: #dddddd;
             --text-header-colour: #9c9c9c;
+            --text-input-font-family: 'Open Sans', sans-serif;
             --text-header-font-family: 'Montserrat', sans-serif;
             --gutter-background-image-url: url(https://brave-bell-30868b.netlify.app/img/double-bubble-outline.png);
             --gutter-background-image-url: url(https://brave-bell-30868b.netlify.app/img/light-grey-terrazzo.png);
@@ -168,7 +168,7 @@
             display: grid;
             grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
             grid-template-rows: 0.85fr 1fr 1.4fr;
-            grid-template-areas: "laGoalsToday spWeekElapsed spWeekElapsed spWeekElapsed spWeekElapsed spWeekElapsed spWeekElapsed spWeekElapsed spWeekElapsed"
+            grid-template-areas: "laGoalsWeek spWeekElapsed spWeekElapsed spWeekElapsed spWeekElapsed spWeekElapsed spWeekElapsed spWeekElapsed spWeekElapsed"
                 "inGoalsWeek1 inGoalsWeek1 inGoalsWeek1 inGoalsWeek2 inGoalsWeek2 inGoalsWeek2 inGoalsWeek3 inGoalsWeek3 inGoalsWeek3"
                 "inGoalsWeek4 inGoalsWeek4 inGoalsWeek4 inGoalsWeek5 inGoalsWeek5 inGoalsWeek5 inGoalsWeek6 inGoalsWeek6 inGoalsWeek6";
             min-height: fit-content;
@@ -552,7 +552,7 @@
             .GoalsWeek {
                 grid-template-columns: 1fr 1fr;
                 grid-template-rows: auto;
-                grid-template-areas: "laGoalsToday ."
+                grid-template-areas: "laGoalsWeek ."
                 "spWeekElapsed spWeekElapsed"
                     "inGoalsWeek1 inGoalsWeek2"
                     "inGoalsWeek3 inGoalsWeek4"
@@ -568,12 +568,22 @@
             }
 
             .GoalsMonth {
+                grid-template-columns: 1fr 1fr;
                 grid-template-rows: repeat(fit-content);
+                grid-template-areas: "laGoalsMonth ."
+                "spMonthElapsed spMonthElapsed"
+                    "inGoalsMonth1 inGoalsMonth2"
+                    "inGoalsMonth3 inGoalsMonth4";
             }
 
 
             .GoalsYear {
+                grid-template-columns: 1fr 1fr;
                 grid-template-rows: repeat(fit-content);
+                grid-template-areas: "laGoalsYear ."
+                "spYearElapsed spYearElapsed"
+                    "inGoalsYear1 inGoalsYear2"
+                    "inGoalsYear3 inGoalsYear4";
             }
 
             .Habits{
