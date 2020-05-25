@@ -1,17 +1,16 @@
 /* eslint-disable */
+
+const currentYear = new Date().getFullYear();
+const currentMonth = new Date().getMonth();
+const currentDay = new Date().getDate();
+const now = new Date();
+
 let titleBeforeText = 'Year in progress: '
 let titleAfterText = '% of year elapsed'
 
-let dayProgressBeforeText = ' ';
-let dayProgressAfterText = '% of today has elapsed';
-let dayOvertimeText = ' (working day over)';
-let weekProgressBeforeText = ' ';
-let weekProgressAfterText = '% of week has elapsed';
-let weekOvertimeText = ' (working week over)';
-let monthProgressBeforeText = ' ';
-let monthProgressAfterText = '% of month has elapsed';
-let yearProgressBeforeText = ' ';
-let yearProgressAfterText = '% of year has elapsed';
+
+
+
 
 let decimalPlacesYear = 1; // recommend 1 to 5, 0 rounds up, 5 lets you see some nice movement
 let decimalPlacesDay = 1;
@@ -23,9 +22,26 @@ var beginDay = 1;
 var WeekDuration= 5;
 
 
-const currentYear = new Date().getFullYear();
-const currentMonth = new Date().getMonth();
-const currentDay = new Date().getDate();
+let dayProgressBeforeText = ' ';
+let dayProgressAfterText = '% of <today> has elapsed'.replace('<today>', new Date(currentYear, currentMonth, getWeekBeginDate(now.getDay())).toLocaleString('default', { weekday: 'long' }) + ' ' + getWeekBeginDate(now.getDay()) + nth(getWeekBeginDate(now.getDay())) + ' ' + new Date(currentYear, currentMonth, getWeekBeginDate(now.getDay())).toLocaleString('default', { month: 'long' }) + ' ' + currentYear);
+let dayOvertimeText = ' (working day over)';
+let weekProgressBeforeText = ' ';
+let weekProgressAfterText = '% of <weekbegin> has elapsed'.replace('<weekbegin>', 'week beginning ' + new Date(currentYear, currentMonth, getWeekBeginDate(now.getDay())).toLocaleString('default', { weekday: 'long' }) + ' ' + getWeekBeginDate(now.getDay()) + nth(getWeekBeginDate(now.getDay())) + ' ' + new Date(currentYear, currentMonth, getWeekBeginDate(now.getDay())).toLocaleString('default', { month: 'long' }) );
+
+
+
+//.toLocaleDateString(locale, { weekday: 'long' })
+
+
+let weekOvertimeText = ' (working week over)';
+let monthProgressBeforeText = ' ';
+let monthProgressAfterText = '% of <month> has elapsed'.replace('<month>', now.toLocaleString('default', { month: 'long' }) + ' ' + currentYear);
+let yearProgressBeforeText = ' ';
+let yearProgressAfterText = '% of the year <year> has elapsed'.replace('<year>', currentYear);
+
+
+
+
 
 
 
@@ -44,6 +60,17 @@ changeTitle();                                      // sets the title so there i
     function changeTitle() {
         document.title = `${titleBeforeText}${getYearProgress()}${titleAfterText}`;
     }
+
+
+    function nth(d) {
+    if (d > 3 && d < 21) return 'th';
+    switch (d % 10) {
+        case 1: return "st";
+        case 2: return "nd";
+        case 3: return "rd";
+        default: return "th";
+    }
+}
 
 
 
@@ -239,7 +266,7 @@ changeTitle();                                      // sets the title so there i
         saveContent('inHabits3', 'lsHabits3', 'habit 3 here...');
         saveContent('inHabits4', 'lsHabits4', 'habit 4 here...');
         saveContent('inHabits5', 'lsHabits5', 'habit 5 here...');
-        saveContent('inHabits6', 'lsHabits6', 'habit 6 here...');
+        //saveContent('inHabits6', 'lsHabits6', 'habit 6 here...');
 
     }
 
@@ -284,7 +311,7 @@ changeTitle();                                      // sets the title so there i
         loadContent('inHabits3', 'lsHabits3', 'habit 3 here...');
         loadContent('inHabits4', 'lsHabits4', 'habit 4 here...');
         loadContent('inHabits5', 'lsHabits5', 'habit 5 here...');
-        loadContent('inHabits6', 'lsHabits6', 'habit 6 here...');
+        //loadContent('inHabits6', 'lsHabits6', 'habit 6 here...');
     }
 
 
