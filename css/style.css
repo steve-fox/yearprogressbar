@@ -3,8 +3,8 @@
         =============== */
 
         :root {
-            --left-padding-amount: 10px;
-            --top-padding-amount: 20px;
+            --left-padding-amount: 15px;
+            --top-padding-amount: 25px;
             --label-progress-left-margin: 20px;
             --border-colour: #c3c3c3;
             --border-colour: #dadada;
@@ -78,7 +78,7 @@
             padding: var(--top-padding-amount) 0 0 var(--left-padding-amount);
             display: grid;
             grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-            grid-template-rows: 0.85fr 1fr 1fr 1.4fr;
+            grid-template-rows: 0.9fr 1fr 1fr 1.4fr;
             grid-template-areas: "laGoalsToday spTodayElapsed spTodayElapsed spTodayElapsed spTodayElapsed spTodayElapsed spTodayElapsed spTodayElapsed spTodayElapsed"
                 "inGoalsToday1 inGoalsToday1 inGoalsToday1 inGoalsToday2 inGoalsToday2 inGoalsToday2 inGoalsToday3 inGoalsToday3 inGoalsToday3"
                 "inGoalsToday4 inGoalsToday4 inGoalsToday4 inGoalsToday5 inGoalsToday5 inGoalsToday5 inGoalsToday6 inGoalsToday6 inGoalsToday6"
@@ -167,7 +167,7 @@
             padding: var(--top-padding-amount) 0 0 var(--left-padding-amount);
             display: grid;
             grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-            grid-template-rows: 0.85fr 1fr 1.4fr;
+            grid-template-rows: 0.9fr 1fr 1.4fr;
             grid-template-areas: "laGoalsWeek spWeekElapsed spWeekElapsed spWeekElapsed spWeekElapsed spWeekElapsed spWeekElapsed spWeekElapsed spWeekElapsed"
                 "inGoalsWeek1 inGoalsWeek1 inGoalsWeek1 inGoalsWeek2 inGoalsWeek2 inGoalsWeek2 inGoalsWeek3 inGoalsWeek3 inGoalsWeek3"
                 "inGoalsWeek4 inGoalsWeek4 inGoalsWeek4 inGoalsWeek5 inGoalsWeek5 inGoalsWeek5 inGoalsWeek6 inGoalsWeek6 inGoalsWeek6";
@@ -216,6 +216,7 @@
         .SubGrid {
             display: grid;
             grid-template-columns: 2.0fr 1fr;
+            grid-template-columns: 1.8fr 1fr;
             grid-template-rows: 1.0fr 1.0fr;
             gap: 1px 1px;
             grid-template-areas: "GoalsMonth Habits"
@@ -232,7 +233,7 @@
             padding: var(--top-padding-amount) 0 0 var(--left-padding-amount);
             display: grid;
             grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-            grid-template-rows: 0.85fr 1fr 1.4fr;
+            grid-template-rows: 0.9fr 1fr 1.4fr;
             grid-template-areas: "laGoalsMonth spMonthElapsed spMonthElapsed spMonthElapsed spMonthElapsed spMonthElapsed"
                 "inGoalsMonth1 inGoalsMonth1 inGoalsMonth1 inGoalsMonth2 inGoalsMonth2 inGoalsMonth2"
                 "inGoalsMonth3 inGoalsMonth3 inGoalsMonth3 inGoalsMonth4 inGoalsMonth4 inGoalsMonth4";
@@ -273,7 +274,7 @@
             border-bottom: 0 !important;
             display: grid;
             grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-            grid-template-rows: 0.85fr 1fr 1.4fr;
+            grid-template-rows: 0.9fr 1fr 1.4fr;
             grid-template-areas: "laGoalsYear spYearElapsed spYearElapsed spYearElapsed spYearElapsed spYearElapsed"
                 "inGoalsYear1 inGoalsYear1 inGoalsYear1 inGoalsYear2 inGoalsYear2 inGoalsYear2"
                 "inGoalsYear3 inGoalsYear3 inGoalsYear3 inGoalsYear4 inGoalsYear4 inGoalsYear4";
@@ -311,18 +312,18 @@
         .Habits {
             grid-area: Habits;
             padding: var(--top-padding-amount) 0 0 30px;
+            padding: var(--top-padding-amount) 0 0 50px;
             border-left: var(--border-colour) solid 1px;
             border-bottom: 0px !important;
             display: grid;
             grid-template-columns: 1fr;
-            grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+            grid-template-rows: 0.75fr 1fr 1fr 1fr 1fr 1.2fr;
             grid-template-areas: "laHabits"
                 "inHabits1"
                 "inHabits2"
                 "inHabits3"
                 "inHabits4"
-                "inHabits5"
-                "inHabits6";
+                "inHabits5";
             min-height: fit-content;
             grid-gap: 0 40px;
         }
@@ -352,9 +353,7 @@
             grid-area: inHabits5;
         }
 
-        .inHabits6 {
-            grid-area: inHabits6;
-        }
+
 
 
         /* ===Notes=== */
@@ -368,8 +367,8 @@
         /* ===Header=== */
         .Header {
             grid-area: Header;
-            margin-right: 20px;
-            margin-left: 20px;
+            margin-right: 35px;
+            margin-left: 35px;
         }
 
         #logo {
