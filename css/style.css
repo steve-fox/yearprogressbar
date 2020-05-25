@@ -46,7 +46,7 @@
             display: grid;
             grid-template-columns: 1.5fr minmax(520px, 1.4fr) minmax(520px, 1.4fr) 1.5fr;
 
-            grid-template-rows: minmax(30px, 0.32fr) minmax(50px, 1.2fr) minmax(50px, 1fr) minmax(200px, 1.7fr) minmax(150px, 0.8fr) minmax(20px, 0.1fr);
+            grid-template-rows: minmax(65px, 0.32fr) minmax(50px, 1.2fr) minmax(50px, 1fr) minmax(200px, 1.7fr) minmax(150px, 0.8fr) minmax(20px, 0.1fr);
             gap: 0px 0px;
             grid-template-areas:
                 "GutterLeft Header Header GutterRight"
