@@ -652,6 +652,10 @@
 
             .grid-container{grid-template-rows: minmax(65px, 0.12fr) minmax(250px, 1.2fr) minmax(150px, 1fr) minmax(680px, 2fr) minmax(150px, 0.8fr) minmax(20px, 0.1fr);}
 
+
+            .Header {grid-template-columns: 1fr 6fr;}
+
+
             .GoalsToday {
                 grid-template-columns: 1fr 1fr;
                 grid-template-rows: auto;
