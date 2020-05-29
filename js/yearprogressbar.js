@@ -23,7 +23,9 @@ var WeekDuration= 5;
 
 
 let dayProgressBeforeText = ' ';
-let dayProgressAfterText = '% of <today> has elapsed'.replace('<today>', new Date(currentYear, currentMonth, getWeekBeginDate(now.getDay())).toLocaleString('default', { weekday: 'long' }) + ' ' + getWeekBeginDate(now.getDay()) + nth(getWeekBeginDate(now.getDay())) + ' ' + new Date(currentYear, currentMonth, getWeekBeginDate(now.getDay())).toLocaleString('default', { month: 'long' }) + ' ' + currentYear);
+//let dayProgressAfterText = '% of <today> has elapsed'.replace('<today>', new Date(currentYear, currentMonth, now.getDay()).toLocaleString('default', { weekday: 'long' }) + ' ' + now.getDay() + nth(now.getDay()) + ' ' + new Date(currentYear, currentMonth, now.getDay()).toLocaleString('default', { month: 'long' }) + ' ' + currentYear);
+let dayProgressAfterText = '% of <today> has elapsed'.replace('<today>', new Date(currentYear, currentMonth, currentDay).toLocaleString('default', { weekday: 'long' }) + ' ' + currentDay + nth(currentDay) + ' ' + new Date(currentYear, currentMonth, currentDay).toLocaleString('default', { month: 'long' }) + ' ' + currentYear);
+
 let dayOvertimeText = ' (working day over)';
 let weekProgressBeforeText = ' ';
 let weekProgressAfterText = '% of <weekbegin> has elapsed'.replace('<weekbegin>', 'week beginning ' + new Date(currentYear, currentMonth, getWeekBeginDate(now.getDay())).toLocaleString('default', { weekday: 'long' }) + ' ' + getWeekBeginDate(now.getDay()) + nth(getWeekBeginDate(now.getDay())) + ' ' + new Date(currentYear, currentMonth, getWeekBeginDate(now.getDay())).toLocaleString('default', { month: 'long' }) );
