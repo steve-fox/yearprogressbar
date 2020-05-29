@@ -53,6 +53,7 @@ changeTitle();                                      // sets the title so there i
         progress = this.setInterval(changeProgressStatus, 800);
         save = setInterval(saveAllContent, 2000);
         loadAllContent();
+
     }
 
 
@@ -328,5 +329,6 @@ changeTitle();                                      // sets the title so there i
         }
 
     }
+
 
 
