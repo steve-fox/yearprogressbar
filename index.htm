@@ -39,7 +39,7 @@
 
 
 
-    <div class="grid-container">
+    <div class="grid-container home">
         <div class="Header">
 
             <a id="homeLink" href="#">
@@ -193,7 +193,7 @@
 
         </div>
 
-        <div id="infoDiv" class="infoDiv hide">
+        <div id="infoDiv" class="infoDiv">
 
 
 
@@ -275,7 +275,7 @@
 
 
 
-        <div id="settingsDiv" class="settingsDiv hide">
+        <div id="settingsDiv" class="settingsDiv">
             <p>Coming soon</p>
         </div>
 
@@ -426,64 +426,22 @@
 
                 if (match.id == "infoLink") {
 
-                    // deals with hiding elements
-                    let home = document.querySelectorAll(".home");
+                    var gridContainer = document.querySelector(".grid-container");
+                    gridContainer.classList.remove("home", "settings");
+                    gridContainer.classList.add("info");
 
-                    home.forEach((homeitem) => {
-                        homeitem.classList.add('hide');
-                    });
-
-                    document.querySelector(".settingsDiv").classList.add('hide');
-
-
-                    // deals with showing elements
-                    let gridContainer = document.querySelector(".grid-container");
-
-                    gridContainer.style.gridTemplateAreas = '"GutterLeft Header Header GutterRight" "GutterLeft infoDiv infoDiv GutterRight" "GutterLeft infoDiv infoDiv GutterRight" "GutterLeft infoDiv infoDiv GutterRight" "GutterLeft infoDiv infoDiv GutterRight" "GutterLeft Footer Footer GutterRight"';
-
-                    document.querySelector(".infoDiv").classList.remove('hide');
 
                 }
                 else if (match.id == "settingsLink") {
-
-
-                    // deals with hiding elements
-                    let home = document.querySelectorAll(".home");
-
-                    home.forEach((homeitem) => {
-                        homeitem.classList.add('hide');
-                    });
-
-                    document.querySelector(".infoDiv").classList.add('hide');
-
-
-                    // deals with showing elements
-                    let gridContainer = document.querySelector(".grid-container");
-
-                    gridContainer.style.gridTemplateAreas = '"GutterLeft Header Header GutterRight" "GutterLeft settingsDiv settingsDiv GutterRight" "GutterLeft settingsDiv settingsDiv GutterRight" "GutterLeft settingsDiv settingsDiv GutterRight" "GutterLeft settingsDiv settingsDiv GutterRight" "GutterLeft Footer Footer GutterRight"';
-
-                    document.querySelector(".settingsDiv").classList.remove('hide');
+                    var gridContainer = document.querySelector(".grid-container");
+                    gridContainer.classList.remove("home", "info");
+                    gridContainer.classList.add("settings");
 
                 }
                 else {
-                    // deals with hiding elements
-                    document.querySelector(".infoDiv").classList.add('hide');
-                    document.querySelector(".settingsDiv").classList.add('hide');
-
-
-                    // deals with showing elements
-                    let home = document.querySelectorAll(".home");
-
-                    home.forEach((homeitem) => {
-                        homeitem.classList.remove('hide');
-                    });
-
-
-                    let gridContainer = document.querySelector(".grid-container");
-
-                    gridContainer.style.gridTemplateAreas = '';
-
-
+                    var gridContainer = document.querySelector(".grid-container");
+                    gridContainer.classList.remove("info", "settings");
+                    gridContainer.classList.add("home");
 
                 }
 
