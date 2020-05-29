@@ -655,7 +655,10 @@
 
             .Header {grid-template-columns: 1fr 6fr;}
 
-            #logo {min-width:35px;}
+            a#homeLink {
+                width: 35px;
+                overflow: hidden;
+            }
 
 
             .GoalsToday {
