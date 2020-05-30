@@ -16,30 +16,7 @@ let decimalPlacesYear = 1; // recommend 1 to 5, 0 rounds up, 5 lets you see some
 let decimalPlacesDay = 1;
 let decimalPlacesWeek = 1;
 let decimalPlacesMonth =1;
-var beginHour = 7;
-var endHour = 18;
-var beginDay = 1;
-var WeekDuration= 5;
 
-
-let dayProgressBeforeText = ' ';
-//let dayProgressAfterText = '% of <today> has elapsed'.replace('<today>', new Date(currentYear, currentMonth, now.getDay()).toLocaleString('default', { weekday: 'long' }) + ' ' + now.getDay() + nth(now.getDay()) + ' ' + new Date(currentYear, currentMonth, now.getDay()).toLocaleString('default', { month: 'long' }) + ' ' + currentYear);
-let dayProgressAfterText = '% of <today> has elapsed'.replace('<today>', new Date(currentYear, currentMonth, currentDay).toLocaleString('default', { weekday: 'long' }) + ' ' + currentDay + nth(currentDay) + ' ' + new Date(currentYear, currentMonth, currentDay).toLocaleString('default', { month: 'long' }) + ' ' + currentYear);
-
-let dayOvertimeText = ' (working day over)';
-let weekProgressBeforeText = ' ';
-let weekProgressAfterText = '% of <weekbegin> has elapsed'.replace('<weekbegin>', 'week beginning ' + new Date(currentYear, currentMonth, getWeekBeginDate(now.getDay())).toLocaleString('default', { weekday: 'long' }) + ' ' + getWeekBeginDate(now.getDay()) + nth(getWeekBeginDate(now.getDay())) + ' ' + new Date(currentYear, currentMonth, getWeekBeginDate(now.getDay())).toLocaleString('default', { month: 'long' }) );
-
-
-
-//.toLocaleDateString(locale, { weekday: 'long' })
-
-
-let weekOvertimeText = ' (working week over)';
-let monthProgressBeforeText = ' ';
-let monthProgressAfterText = '% of <month> has elapsed'.replace('<month>', now.toLocaleString('default', { month: 'long' }) + ' ' + currentYear);
-let yearProgressBeforeText = ' ';
-let yearProgressAfterText = '% of the year <year> has elapsed'.replace('<year>', currentYear);
 
 
 
@@ -61,7 +38,9 @@ changeTitle();                                      // sets the title so there i
 
 
     function changeTitle() {
-        document.title = `${titleBeforeText}${getYearProgress()}${titleAfterText}`;
+        let yearProgressText = document.getElementById("inSettingsYearMessage").value.replace('<year>', currentYear);
+        document.title = yearProgressText.replace('<percentage>', getYearProgress());
+
     }
 
 
@@ -82,24 +61,33 @@ changeTitle();                                      // sets the title so there i
     // in the case of week and day, there is the option of an extra message that indicates that we are over the working day (and hence the percentage maybe over 100)
     function changeProgressStatus(){
 
+        let dayProgressText = document.getElementById("inSettingsDayMessage").value.replace('<today>', new Date(currentYear, currentMonth, currentDay).toLocaleString('default', { weekday: 'long' }) + ' ' + currentDay + nth(currentDay) + ' ' + new Date(currentYear, currentMonth, currentDay).toLocaleString('default', { month: 'long' }) + ' ' + currentYear);
+        let weekProgressText = document.getElementById("inSettingsWeekMessage").value.replace('<weekbegin>', 'week beginning ' + new Date(currentYear, currentMonth, getWeekBeginDate(now.getDay())).toLocaleString('default', { weekday: 'long' }) + ' ' + getWeekBeginDate(now.getDay()) + nth(getWeekBeginDate(now.getDay())) + ' ' + new Date(currentYear, currentMonth, getWeekBeginDate(now.getDay())).toLocaleString('default', { month: 'long' }));
+        let monthProgressText = document.getElementById("inSettingsMonthMessage").value.replace('<month>', now.toLocaleString('default', { month: 'long' }) + ' ' + currentYear);
+        let yearProgressText = document.getElementById("inSettingsYearMessage").value.replace('<year>', currentYear);
+
+
         // 2 versions are chosen depending if the day percentage is work day or whole day
         if (getDayProgress() >= 100){
-            document.getElementById('spTodayElapsed').innerHTML = `${dayProgressBeforeText}${getDayProgress()}${dayProgressAfterText}${dayOvertimeText}`;
+            document.getElementById('spTodayElapsed').innerHTML = dayProgressText.replace('<percentage>', getDayProgress()) + ' (working day over)';
         }
         else{
-            document.getElementById('spTodayElapsed').innerHTML = `${dayProgressBeforeText}${getDayProgress()}${dayProgressAfterText}`;
+            document.getElementById('spTodayElapsed').innerHTML = dayProgressText.replace('<percentage>', getDayProgress());
         }
 
         // 2 versions are chosen from depending if the week percentage is work week or whole week
         if (getWeekProgress() >= 100){
-            document.getElementById('spWeekElapsed').innerHTML = `${weekProgressBeforeText}${getWeekProgress()}${weekProgressAfterText}${weekOvertimeText}`;
+            //document.getElementById('spWeekElapsed').innerHTML = `${weekProgressBeforeText}${getWeekProgress()}${weekProgressAfterText}${weekOvertimeText}`;
+            document.getElementById('spWeekElapsed').innerHTML = weekProgressText.replace('<percentage>', getWeekProgress()) + ' (working week over)';
         }
         else{
-        document.getElementById('spWeekElapsed').innerHTML = `${weekProgressBeforeText}${getWeekProgress()}${weekProgressAfterText}`;
+        //document.getElementById('spWeekElapsed').innerHTML = `${weekProgressBeforeText}${getWeekProgress()}${weekProgressAfterText}`;
+            document.getElementById('spWeekElapsed').innerHTML = weekProgressText.replace('<percentage>', getWeekProgress());
         }
 
-        document.getElementById('spMonthElapsed').innerHTML = `${monthProgressBeforeText}${getMonthProgress()}${monthProgressAfterText}`;
-        document.getElementById('spYearElapsed').innerHTML = `${yearProgressBeforeText}${getYearProgress()}${yearProgressAfterText}`;
+        //document.getElementById('spMonthElapsed').innerHTML = `${monthProgressBeforeText}${getMonthProgress()}${monthProgressAfterText}`;
+        document.getElementById('spMonthElapsed').innerHTML = monthProgressText.replace('<percentage>', getMonthProgress());
+        document.getElementById('spYearElapsed').innerHTML = yearProgressText.replace('<percentage>', getYearProgress());
     }
 
 
@@ -136,6 +124,11 @@ changeTitle();                                      // sets the title so there i
 
     function getDayProgress() {
 
+        var beginHour = document.getElementById("inSettingsDayStartHour").value;
+        var endHour = document.getElementById("inSettingsDayEndHour").value;
+
+
+
         var now = new Date();
         var dayStart = new Date(currentYear, currentMonth, currentDay, beginHour, 0, 0, 0);
         var dayElapsed = now - dayStart;
@@ -168,6 +161,7 @@ changeTitle();                                      // sets the title so there i
         var now = new Date();
         var dayOfWeek = now.getDay();
         //var weekDuration = Maths.abs(beginDay-endDay) + 1;
+        WeekDuration = document.getElementById("inSettingsWeekDuration").value;
 
         var weekStart = new Date(currentYear, currentMonth, getWeekBeginDate(dayOfWeek), 0, 0, 0, 0); // date of last monday or today if today is monday
         var weekElapsed = now - weekStart;
@@ -185,6 +179,7 @@ changeTitle();                                      // sets the title so there i
     // week progress is based on Monday as start of the week
     // in the first week of a month this may return a negative value which should result in weekStart being from the previous month
     function getWeekBeginDate(dayOfWeek) {
+        var beginDay = document.getElementById("inSettingsWeekStartDay").value;
         var weekBeginDate;
 
         if (dayOfWeek == beginDay) { // if it's a Monday then today is the week beginning
@@ -269,7 +264,19 @@ changeTitle();                                      // sets the title so there i
         saveContent('inHabits3', 'lsHabits3', 'habit 3 here...');
         saveContent('inHabits4', 'lsHabits4', 'habit 4 here...');
         saveContent('inHabits5', 'lsHabits5', 'habit 5 here...');
-        //saveContent('inHabits6', 'lsHabits6', 'habit 6 here...');
+
+        saveContent('inSettingsDayStartHour', 'inSettingsDayStartHour', '0');
+        saveContent('inSettingsDayEndHour', 'inSettingsDayEndHour', '24');
+
+        saveContent('inSettingsDayMessage', 'inSettingsDayMessage', '<percentage>% of today has elapsed');
+
+
+        saveContent('inSettingsWeekStartDay', 'inSettingsWeekStartDay', '1');
+        saveContent('inSettingsWeekDuration', 'inSettingsWeekDuration', '5');
+
+        saveContent('inSettingsWeekMessage', 'inSettingsWeekMessage', '<percentage>% of week has elapsed');
+        saveContent('inSettingsMonthMessage', 'inSettingsMonthMessage', '<percentage>% of <month> has elapsed');
+        saveContent('inSettingsYearMessage', 'inSettingsYearMessage', '<percentage>% of <year> has elapsed');
 
     }
 
@@ -314,7 +321,19 @@ changeTitle();                                      // sets the title so there i
         loadContent('inHabits3', 'lsHabits3', 'habit 3 here...');
         loadContent('inHabits4', 'lsHabits4', 'habit 4 here...');
         loadContent('inHabits5', 'lsHabits5', 'habit 5 here...');
-        //loadContent('inHabits6', 'lsHabits6', 'habit 6 here...');
+
+
+        loadContent('inSettingsDayStartHour', 'inSettingsDayStartHour', '0');
+        loadContent('inSettingsDayEndHour', 'inSettingsDayEndHour', '24');
+        loadContent('inSettingsDayMessage', 'inSettingsDayMessage', '<percentage>% of today has elapsed');
+
+
+        loadContent('inSettingsWeekStartDay', 'inSettingsWeekStartDay', '1');
+        loadContent('inSettingsWeekDuration', 'inSettingsWeekDuration', '5');
+
+        loadContent('inSettingsWeekMessage', 'inSettingsWeekMessage', '<percentage>% of week has elapsed');
+        loadContent('inSettingsMonthMessage', 'inSettingsMonthMessage', '<percentage>% of <month> has elapsed');
+        loadContent('inSettingsYearMessage', 'inSettingsYearMessage', '<percentage>% of <year> has elapsed');
     }
 
 
@@ -327,7 +346,18 @@ changeTitle();                                      // sets the title so there i
             //document.getElementById(inputID).focus();
         }
         else {
-            document.getElementById(inputID).setAttribute('placeholder', placeholderText);
+            if (inputID.includes("Settings")){
+                document.getElementById(inputID).value = placeholderText;
+            }
+            else{
+                if (inputID.includes("Settings")) {
+                    document.getElementById(inputID).value = placeholderText;
+                }
+                else {
+                    document.getElementById(inputID).setAttribute('placeholder', placeholderText);
+                }
+            }
+
         }
 
     }

@@ -513,7 +513,7 @@
         /* ===============
         TEXT
         =============== */
-        .grid-container label,
+        .grid-container.home label,
         .progress, nav a, h3 {
             text-transform: uppercase;
             font-size: 0.9em;
@@ -521,6 +521,14 @@
             color: var(--text-header-colour);
             font-family: var(--text-header-font-family);
             font-weight: normal;
+        }
+
+        .grid-container.settings label{
+            color: var(--text-input-colour);
+            font-family: var(--text-header-font-family);
+            font-weight: normal;
+            font-style: italic;
+            font-size: 0.8em;
         }
 
         h3 {
@@ -572,7 +580,7 @@
             outline: none;
         }
 
-        input {
+        .grid-container.home input {
             width: 70%;
             height: 15px;
             border: none;
