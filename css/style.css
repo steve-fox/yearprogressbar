@@ -452,11 +452,16 @@
         /* ===Settings Page=== */
         .settingsDiv {
             grid-area: settingsDiv;
-            padding: var(--top-padding-amount) 0 0 var(--left-padding-amount);
-            grid-gap: 0 40px;
-            margin-right: 20px;
-            margin-left: 20px;
+            display:grid;
+            grid-template-rows: 0.01fr 0.16fr 1.35fr 1fr;
+            grid-template-columns: 35px 1fr 0.225fr 1fr 35px;
         }
+
+        p#introSettings{grid-row: 2;grid-column: 2/5; }
+        div#daySettings {grid-row: 3;grid-column: 2/3; border-bottom: none;}
+        div#weekSettings {grid-row: 3;grid-column: 4/5; border-bottom: none;}
+        div#monthSettings {grid-row: 4;grid-column: 2/3; border-bottom: none;}
+        div#yearSettings {grid-row: 4;grid-column: 4/5; border-bottom: none;}
 
 
         /* ===Info Page=== */
@@ -592,6 +597,12 @@
             background-color: var(--paper-background-colour);
             z-index: 1;
         }
+
+        .grid-container #settingsDiv input {
+            border: 1px solid var(--text-input-underline-colour)
+        }
+
+
 
         .inputlabel {
             position: relative;
@@ -783,6 +794,19 @@
             .infoDiv {grid-template-rows: 0.3fr 0.5fr 1.2fr;}
             div#infoText1 {grid-row: 3;grid-column: 2/5;}
             div#infoText2 {grid-row: 4;grid-column: 2/5;}
+
+
+            .settingsDiv {
+                grid-template-rows: auto;
+                grid-gap: 25px 0;
+                padding-bottom: 50px;
+            }
+
+            div#introSettings {grid-row: 2;grid-column: 2/5;}
+            div#daySettings {grid-row: 3;grid-column: 2/5;}
+            div#weekSettings {grid-row: 4;grid-column: 2/5;}
+            div#monthSettings {grid-row: 5;grid-column: 2/5;}
+            div#yearSettings {grid-row: 6;grid-column: 2/5;}
 
 
             .progress{margin-left: 0;}

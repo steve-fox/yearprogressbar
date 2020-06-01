@@ -276,105 +276,93 @@
 
 
         <div id="settingsDiv" class="settingsDiv">
-            <p>You can customise certain things eg what day you prefer the week to start.</p><br />
+
+            <p id="introSettings">You can customise certain things eg what day you prefer the week to start.</p><br />
+
+            <div id="daySettings">
+                <h3>Day Settings</h3>
+                <p>You can choose to calculate day progress of the whole day (just put 0 for start hour and 24 for end
+                    hour) or you may prefer to use your working hours (eg. 9 for start and 17 for end). For now, we
+                    can't
+                    control minutes.</p>
+
+                <label>Start hour:</label><br />
+                <input id="inSettingsDayStartHour" type="text" />
+
+                <br /><br />
+
+                <label>End hour:</label><br />
+                <input id="inSettingsDayEndHour" type="text" />
+
+                <br />
+                <p>You can choose what your progress message says. By using the word today or percentage in angle
+                    brackets,
+                    ie. <strong>&lt;today&gt;</strong> and <strong>&lt;percentage&gt;</strong>
+                    you can display today's date and progression of the day</p>
+
+                <label>Progress message:</label><br />
+                <input id="inSettingsDayMessage" style="width: 400px;" type="text" />
+            </div>
 
 
+            <div id="weekSettings">
+                <h3>Week Settings</h3>
+
+                <p>You can choose to calculate week progress of the whole week (put the week duration as 7), or work
+                    week
+                    (eg duration of 5) and have the week start on any
+                    day. You need to use a number for the day, where 0 is Sunday, 1 is Monday, 2 is Tuesday, 3 is
+                    Wednesday,
+                    4
+                    is Thursday, 5 is Friday and 6 is Saturday:</p>
+
+                <label>Start day:</label><br />
+                <input id="inSettingsWeekStartDay" type="text" />
+                <br /><br />
+                <label>Week duration:</label><br />
+                <input id="inSettingsWeekDuration" type="text" />
+
+                <p>You can choose what your progress message says. By using the word weekbegin or percentage in angle
+                    brackets,
+                    ie. <strong>&lt;weekbegin&gt;</strong> and <strong>&lt;percentage&gt;</strong>
+                    you can display the week begin date and progression of the week</p>
+
+                <label>Progress message:</label><br />
+                <input id="inSettingsWeekMessage" style="width: 400px;" type="text" />
+
+            </div>
 
 
+            <div id="monthSettings">
 
-            <h3>Day Settings</h3>
-            <p>You can choose to calculate day progress of the whole day (just put 0 for start hour and 24 for end
-                hour) or you may prefer to use your working hours (eg. 9 for start and 17 for end). For now, we can't
-                control minutes.</p>
+                <h3>Month Settings</h3>
 
-            <label>Start hour:</label><br />
-            <input id="inSettingsDayStartHour" type="text" />
+                <p>You can choose what your progress message says. By using the word month or percentage in angle
+                    brackets,
+                    ie. <strong>&lt;percentage&gt;</strong>
+                    you can display the progression of the month or the month name.</p>
 
-            <br /><br />
+                <label>Progress message:</label><br />
+                <input id="inSettingsMonthMessage" style="width: 400px;" type="text" />
 
-            <label>End hour:</label><br />
-            <input id="inSettingsDayEndHour" type="text" />
+            </div>
 
-            <br />
-            <p>You can choose what your progress message says. By using the word today or percentage in angle brackets,
-                ie. <strong>&lt;today&gt;</strong> and <strong>&lt;percentage&gt;</strong>
-                you can display today's date and progression of the day</p>
+            <div id="yearSettings">
+                <h3>Year Settings</h3>
 
-            <label>Progress message:</label><br />
-            <input id="inSettingsDayMessage" style="width: 400px;" type="text" />
+                <p>You can choose what your progress message says. By using the word year or percentage in angle
+                    brackets,
+                    ie. <strong>&lt;percentage&gt;</strong>
+                    you can display the progression of the year or the year itself.</p>
 
-            <br /><br /><br />
+                <label>Progress message:</label><br />
+                <input id="inSettingsYearMessage" style="width: 400px;" type="text" />
 
-
-
-
-
-
-            <h3>Week Settings</h3>
-
-            <p>You can choose to calculate week progress of the whole week (put the week duration as 7), or work week
-                (eg duration of 5) and have the week start on any
-                day. You need to use a number for the day, where 0 is Sunday, 1 is Monday, 2 is Tuesday, 3 is Wednesday,
-                4
-                is Thursday, 5 is Friday and 6 is Saturday:</p>
-
-            <label>Start day:</label><br />
-            <input id="inSettingsWeekStartDay" type="text" />
-            <br /><br />
-            <label>Week duration:</label><br />
-            <input id="inSettingsWeekDuration" type="text" />
-
-            <p>You can choose what your progress message says. By using the word weekbegin or percentage in angle
-                brackets,
-                ie. <strong>&lt;weekbegin&gt;</strong> and <strong>&lt;percentage&gt;</strong>
-                you can display the week begin date and progression of the week</p>
-
-            <label>Progress message:</label><br />
-            <input id="inSettingsWeekMessage" style="width: 400px;" type="text" />
-
-            <br /><br /><br />
-
-
-
-
-
-
-
-
-
-
-
-            <h3>Month Settings</h3>
-
-            <p>You can choose what your progress message says. By using the word month or percentage in angle
-                brackets,
-                ie. <strong>&lt;percentage&gt;</strong>
-                you can display the progression of the month or the month name.</p>
-
-            <label>Progress message:</label><br />
-            <input id="inSettingsMonthMessage" style="width: 400px;" type="text" />
-
-            <br /><br /><br />
-
-
-
-
-
-
-
-
-            <h3>Year Settings</h3>
-
-            <p>You can choose what your progress message says. By using the word year or percentage in angle
-                brackets,
-                ie. <strong>&lt;percentage&gt;</strong>
-                you can display the progression of the year or the year itself.</p>
-
-            <label>Progress message:</label><br />
-            <input id="inSettingsYearMessage" style="width: 400px;" type="text" />
-
-            <br /><br /><br /><br /><br />
+            </div>
         </div>
+
+
+
 
 
         <div class="GoalsToday home">
